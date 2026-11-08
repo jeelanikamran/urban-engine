@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	class Student
+	{
+		id;
+		name;
+		eng;
+		urdu;
+		math;
+		sst;
+		sc;
+		tm;
+		pb;
+		fb;
+
+		constructor(id,name, eng, urdu, math, sst, sc)
+		{
+			this.id=id;
+			this.name=name;
+			this.eng=eng;
+			this.urdu=urdu;
+			this.math=math;
+			this.sst=sst;
+			this.sc=sc;
+		}
+
+	   calculate()
+	   {
+	   	  this.tm=0;
+	   	  this.pb=0;
+	   	  this.fb=0;
+
+	   	  if(this.eng>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.eng;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.math>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.math;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.urdu>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.urdu;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.sst>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.sst;
+	   	  	this.pb++;
+	   	  }
+
+
+	   	  if(this.sc>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.sc;
+	   	  	this.pb++;
+	   	  }
+
+	   	  this.fb= 5- this.pb;
+
+
+	   }	
+
+
+       display()
+       {
+       	 document.write(this.id+ " "+ this.name+ " "+ this.eng+ " "+ this.urdu+ " "+ this.math+ " "+ this.sst+ " "+ this.sc+ " "+ this.tm+ " "+ this.pb+  " "+ this.fb);
+       }
+
+	}
+
+
+	obj= new Student(1, 'aqsa', 22, 33, 70,20,60);  //constuc
+	
+
+	obj.calculate()
+	obj.display()
+
+
+obj2= new Student(1, 'abc', 52, 66, 70,90,60);
+
+
+	obj2.calculate()
+	obj2.display()
+
+
+</script>

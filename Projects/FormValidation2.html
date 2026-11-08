@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation </title>
+</head>
+<body>
+            <h1>Login</h1>
+
+<form>
+
+      <label>UserName: </label> <input type="text" placeholder="UserName" id="userN" >
+      <p id = 'userE'>Username is Empty!!</p>
+      <br>
+      <label>PassWord: </label> <input type="password" placeholder="PassWord" id="passW">
+      <p id = 'passE'>PassWord is Empty!!</p>
+
+      <br>
+                            <input type="submit"  onclick="return subMit()">
+
+</form>
+
+</body>
+</html>
+<script>
+    function subMit()
+    {
+        u = document.getElementById("userN").value;
+        p = document.getElementById("passW").value;
+
+        temp = true;
+
+        if(u.length == 0)
+        {
+            document.getElementById("userE").style.visibility = 'visible';
+            temp = false;
+        }
+
+        if(p.length == 0)
+        {
+            document.getElementById("passE").style.visibility = 'visible';
+            temp = false;
+        }
+    return temp;
+    }
+</script>
+<style>
+    h1
+    {
+        text-align: center;
+    }
+
+    #userE, #passE
+    {
+        visibility: hidden;
+        color: red;
+    }
+</style>

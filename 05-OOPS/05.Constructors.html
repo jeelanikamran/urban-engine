@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Results</title>
+</head>
+<body>
+    <script>
+        class Student {
+            constructor(id, name, english, math, sst, science, urdu) { // constructor initialization.
+                this.id = id;
+                this.name = name;
+                this.english_marks = english;
+                this.math_marks = math;
+                this.sst_marks = sst;
+                this.sc_marks = science;
+                this.urdu_marks = urdu;
+
+                this.passB = 0;
+                this.failB = 0;
+                this.totalM = 0;
+            }
+
+            calculate() { // This is a method to calculate marks of each subject.
+                let marks = [
+                    this.english_marks,
+                    this.math_marks,
+                    this.sst_marks,
+                    this.sc_marks,
+                    this.urdu_marks
+                ];
+
+                this.passB = 0;
+                this.totalM = 0;
+
+                for (let mark of marks) { // Looping via entire to get total marks.
+                    this.totalM += mark;
+
+                    if (mark >= 33) {
+                        this.passB++;
+                    }
+                }
+
+                this.failB = marks.length - this.passB;
+            }
+
+            display() { // This is a method to perform display.
+                console.log("ID:", this.id);
+                console.log("Name:", this.name);
+                console.log("English:", this.english_marks);
+                console.log("Math:", this.math_marks);
+                console.log("SST:", this.sst_marks);
+                console.log("Science:", this.sc_marks);
+                console.log("Urdu:", this.urdu_marks);
+                console.log("Total Marks:", this.totalM);
+                console.log("Subjects Passed:", this.passB);
+                console.log("Subjects Failed:", this.failB);
+            }
+        }
+
+        // Take input
+        let id = parseInt(prompt("Enter ID:"));
+        let name = prompt("Enter Name:");
+        let english = parseInt(prompt("Enter English Marks:"));
+        let math = parseInt(prompt("Enter Math Marks:"));
+        let sst = parseInt(prompt("Enter SST Marks:"));
+        let science = parseInt(prompt("Enter Science Marks:"));
+        let urdu = parseInt(prompt("Enter Urdu Marks:"));
+
+        // Create an initialized object
+        let s1 = new Student(
+            id, name, english, math, sst, science, urdu
+        );
+
+        s1.calculate();
+        s1.display();
+    </script>
+</body>
+</html>

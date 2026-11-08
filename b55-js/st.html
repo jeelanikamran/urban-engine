@@ -1,0 +1,157 @@
+<script type="text/javascript">
+
+
+	class Student
+	{
+		id;
+		name;
+		eng;
+		urdu;
+		math;
+		sst;
+		sc;
+		tm;
+		pb;
+		fb;
+		per;
+
+		constructor(id,name,eng,urdu, math,sst,sc)
+		{
+              this.id=id;
+              this.name=name;
+              this.eng=eng;
+              this.urdu=urdu;
+              this.math=math;
+              this.sst=sst;
+              this.sc=sc;
+
+		} 
+
+		calculate()
+		{
+                this.tm=0;
+                this.pb=0;
+                this.fb=0;
+
+                if(this.eng>=33)
+                {
+                	this.tm= this.tm+this.eng;
+                	this.pb++
+                }
+
+                if(this.urdu>=33)
+                {
+                	this.tm= this.tm+this.urdu;
+                	this.pb++
+                }
+
+                if(this.math>=33)
+                {
+                	this.tm= this.tm+this.math;
+                	this.pb++
+                }
+                if(this.sst>=33)
+                {
+                	this.tm= this.tm+this.sst;
+                	this.pb++
+                }
+                if(this.sc>=33)
+                {
+                	this.tm= this.tm+this.sc;
+                	this.pb++
+                }
+
+                this.fb=5-this.pb;
+
+                this.per= (this.tm/500)*100;
+		}
+
+		 display()
+		{
+
+			  console.log(this)
+			
+			
+		}
+
+
+
+	}
+
+
+
+arr=[]
+
+ 
+
+
+
+   	 arr[0]= new Student(1, 'amir', 50,50,70,40,70);
+   	arr[1]= new Student(2, 'aqsa', 90,50,70,40,7);
+   	arr[2]= new Student(3, 'abc', 90,90,79,88,90);
+
+
+   
+
+   for (i=0; i<3; i++)
+   {
+   	  arr[i].calculate();
+   } 
+
+   for (i=0; i<3; i++)
+   {
+   	  arr[i].display();
+   }
+
+
+
+   
+	
+			  topper=arr[0];
+			 for(i=0; i<3; i++)
+			 {
+			 	 if(arr[i].tm> topper.tm)
+			 	 {
+			 	 	topper= arr[i];
+			 	 }
+			 }
+
+
+			 console.log("topper is " , topper)
+		
+
+		
+ // pass per tage 
+
+    totalstudents=3;
+     passtudents=0;
+
+     for(i=0; i<3; i++)
+     {
+     	  if(arr[i].pb==5)
+     	  {
+     	  	passtudents++;
+     	  }
+     }
+
+     passper= (passtudents/totalstudents)*100;
+
+     console.log(passper)
+
+
+
+
+// fail pertage
+
+// pass per in each subj
+// topper in each subj
+
+    
+ 
+   
+
+
+ 
+
+ 
+</script>

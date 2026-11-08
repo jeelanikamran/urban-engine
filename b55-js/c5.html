@@ -1,0 +1,63 @@
+<script type="text/javascript">
+	class Employee
+	{
+		id;
+		name;
+		sal;
+		ta;
+		da;
+		gender;
+		ts;
+
+	    calculate()
+	   {
+             	if(this.gender== 'male')
+				{
+					this.ts= this.sal+this.ta+this.da;
+				}
+				else
+				{
+					this.ts= this.sal+this.ta+this.da+1000;
+
+				}
+
+			      document.write(this.ts)
+		}	      
+			      
+				 
+	};
+
+	e1= new Employee();
+
+	e1.id=1
+	e1.name='amir'
+	e1.sal= 200
+	e1.ta=20
+	e1.da= 4
+	e1.gender='male'
+
+	e1.calculate()
+
+
+
+
+    e2= new Employee();
+
+	e2.id=2
+	e2.name='aqsa'
+	e2.sal= 200
+	e2.ta=22
+	e2.da= 4
+	e2.gender='female'
+
+	e2.calculate()
+
+	
+
+</script>
+
+
+<!-- students 
+
+id name eng urd ,math sst sc tm pb
+ -->

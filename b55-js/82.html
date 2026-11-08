@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<button onclick="storeit()"> store </button>
+
+	<button onclick="getvalue()"> getvalue</button>
+
+	<button onclick="delvalue()"> delete it  </button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+	function storeit()
+	{
+	    localStorage.setItem("name","aqsa")	
+	}
+
+
+    function getvalue()
+    {
+    	x=localStorage.getItem("name")
+    	alert(x)	
+
+    }
+
+    function delvalue()
+    {
+      localStorage.removeItem("name")	
+    }
+
+	
+</script>

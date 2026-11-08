@@ -1,0 +1,230 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Form</title>
+  </head>
+  <body onload="questionData()">
+
+    <h1>Online Examination Form</h1>
+
+    <div id="questionWrapper"></div>
+
+    <button onclick="result()" id="Sresult">Show Result!</button>
+  </body>
+</html>
+
+<style>
+  h1 {
+    text-align: center;
+    /* font-size: medium; */
+  }
+
+  .questionclass {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: whitesmoke;
+    display: inline-block;
+    vertical-align: top;
+  }
+  /* #Sresult
+    {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    } */
+</style>
+
+<script>
+
+    let score = 0;
+
+    const Questions = [
+{
+      id: 1,
+      Title: "What is the full form of HTML?",
+
+      A: "HyperText Markup Language",
+      B: "HighText Machine Language",
+      C: "Hyper Transfer Markup Language",
+      D: "HyperText Markdown Language",
+
+      correctAnswers: "A",
+},
+
+{
+      id: 2,
+      Title: "What does CSS stand for?",
+
+      A: "Computer Style Sheets",
+      B: "Cascading Style Sheets",
+      C: "Creative Style System",
+      D: "Colorful Style Sheets",
+
+      correctAnswers: "B",
+},
+
+{
+      id: 3,
+      Title: "What is JavaScript?",
+
+      A: "A Programming Language",
+      B: "A CSS Framework",
+      C: "A Database",
+      D: "An Operating System",
+
+      correctAnswers: "A",
+},
+
+{
+      id: 4,
+      Title: "Which HTML tag is used to create a hyperlink?",
+
+      A: "link",
+      B: "href",
+      C: "a",
+      D: "hyperlink",
+
+      correctAnswers: "C",
+},
+
+{
+      id: 5,
+      Title: "Which CSS property changes the text color?",
+
+      A: "background-color",
+      B: "font-style",
+      C: "text-decoration",
+      D: "color",
+
+      correctAnswers: "D",
+},
+
+{
+      id: 6,
+      Title: "Which keyword declares a variable in JavaScript?",
+
+      A: "var",
+      B: "int",
+      C: "string",
+      D: "define",
+
+      correctAnswers: "A",
+},
+
+{
+      id: 7,
+      Title: "Which HTML tag is used to insert an image?",
+
+      A: "picture",
+      B: "img",
+      C: "image",
+      D: "src",
+
+      correctAnswers: "B",
+},
+
+{
+      id: 8,
+      Title: "Which method adds an element to the end of an array?",
+
+      A: "pop()",
+      B: "shift()",
+      C: "push()",
+      D: "unshift()",
+
+      correctAnswers: "C",
+},
+
+{
+      id: 9,
+      Title: "Which symbol is used for comments in JavaScript (single-line)?",
+
+      A: "//",
+      B: "/",
+      C: "#",
+      D: "**",
+
+      correctAnswers: "A",
+},
+
+{
+      id: 10,
+      Title: "Which HTML tag creates an unordered list?",
+
+      A: "ol",
+      B: "ul",
+      C: "li",
+      D: "list",
+
+      correctAnswers: "B",
+},
+
+{
+      id: 11,
+      Title: "What does DOM stand for?",
+
+      A: "Data Object Model",
+      B: "Document Oriented Method",
+      C: "Document Object Model",
+      D: "Digital Object Management",
+
+      correctAnswers: "C",
+},
+
+{
+      id: 12,
+      Title: "Which method converts JSON into a JavaScript object?",
+
+      A: "JSON.stringify()",
+      B: "JSON.parse()",
+      C: "JSON.convert()",
+      D: "JSON.object()",
+
+      correctAnswers: "B",
+},
+    ];
+
+  function questionData() {
+    let temp = "";
+
+    Questions.forEach((q, index) => {
+      temp += `<div class ="questionClass" >
+
+            <h3> ${q.id}. ${q.Title} </h3>
+
+                <p>
+                    A. <button onclick="checkANS(${index}, 'A')">${q.A}</button>
+                </p>
+
+                    <p>
+                        B. <button onclick="checkANS(${index}, 'B')">${q.B}</button>
+                    </p>
+
+                        <p>
+                            C. <button onclick="checkANS(${index}, 'C')">${q.C}</button>
+                        </p>
+
+                            <p>
+                                D. <button onclick="(${index}, 'D')">${q.D}</button>
+                            </p>
+                                <hr>
+                                </div>`;
+    });
+    document.getElementById("questionWrapper").innerHTML = temp;
+  }
+
+  function checkANS(index, userAnswer) {
+    if (Questions[index].correctAnswers === userAnswer) {
+      score++;
+    }
+  }
+
+  function result() {
+    alert(score);
+  }
+</script>

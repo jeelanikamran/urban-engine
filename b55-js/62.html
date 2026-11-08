@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div id="wrapper">
+		
+	</div>
+
+
+	<button onclick="addinput()"> Add input</button>
+	<button onclick="addsubmit()">Add Submit Button</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function addinput()
+	{
+		temp="<input type='text' /> <br/>";
+
+		document.getElementById("wrapper").innerHTML+=temp
+
+	}
+
+	function addsubmit()
+	{
+		temp="<input type='submit' /> <br/>";
+
+		document.getElementById("wrapper").innerHTML+=temp
+	}
+</script>
+
+<style type="text/css">
+	#wrapper
+	{
+		background-color: whitesmoke;
+		padding: 30px;
+		margin: 20px;
+
+	}
+</style>

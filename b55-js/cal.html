@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+</head>
+<body>
+
+    <div class="wrapper">
+		 <input type="text" id="result">
+		 <br>
+
+		 <button class="all" onclick="fun(1)">1</button>
+		 <button class="all"  onclick="fun(2)">2</button>
+		 <button class="all"  onclick="fun(3)">3</button>
+		 <br>
+
+		 <button class="all"  onclick="fun(4)">4</button>
+		 <button class="all"  onclick="fun(5)">5</button>
+		 <button class="all"  onclick="fun(6)">6</button>
+
+		 <br>
+		 <button class="all"  onclick="fun(7)">7</button>
+		 <button class="all"  onclick="fun(8)">8</button>
+		 <button class="all"  onclick="fun(9)">9</button>
+
+		 <br>
+
+		 <button class="all" onclick="fun('+')">+</button>
+		 <button class="all" onclick="fun('-')">-</button>
+		 <button class="all" onclick="fun('/')">/</button>
+		 <br>
+
+		 <button class="all" onclick="fun('*')">*</button>
+		 <button class="all" onclick="fun(0)">0</button>
+		 <button class="all" onclick="showresult()">=</button>
+		 <br>
+		 <button onclick="clearone()"> -></button>
+		 <button> .</button>
+		 <button>%</button>
+        
+        <br/>
+		 <button onclick="clearall()">Clear All</button>
+
+	</div>
+
+
+</body>
+</html>
+<script>
+	function fun(x)
+	{
+        document.getElementById("result").value+=x
+	}
+
+	function showresult()
+	{
+		 x= document.getElementById("result").value;
+		 // alert(x)
+		 r=eval(x);
+		 document.getElementById("result").value=r;
+
+	}
+
+	function clearall()
+	{
+		document.getElementById("result").value=" ";
+	}
+
+	function clearone()
+	{
+		str=document.getElementById("result").value;
+		str=str.substring(0, str.length-1);
+
+		document.getElementById("result").value=str;
+
+
+	}
+</script>
+
+
+<style>
+	.wrapper
+	{
+		width: 20%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 20px;
+		background-color: whitesmoke;
+		margin-top: 50px;
+	}
+</style>

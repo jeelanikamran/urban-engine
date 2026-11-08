@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<label>price</label>
+	<input type="text" id="price" placeholder="Price" onkeyup="fun()">
+	<br>
+
+   <label>Quantity</label>
+	<input type="text" id="quantity" placeholder="quantity" onkeyup="fun()">
+	<br>
+
+   <label>sub total</label>
+	<input type="text" id="subtotal" placeholder="subtotal" readonly>
+	<br>
+
+
+ <label>Discount %</label>
+	<input type="text" id="disper" placeholder="Discount in %" onkeyup="fun()">
+	<br>
+
+	 <label>Discount amount</label>
+
+	<input type="text" id="disamount" placeholder="Discount in amount" readonly>
+	<br>
+
+	 <label>Total  amount paid</label>
+
+	<input type="text" id="total" placeholder="total" readonly>
+	<br>
+
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+	function fun()
+	{
+		p=document.getElementById("price").value;
+		q=document.getElementById("quantity").value;
+		st=p*q;
+
+		disper=document.getElementById("disper").value;
+
+		disamount= (st/100)*disper;
+		// alert(disamount)
+
+		document.getElementById("subtotal").value=st;
+		document.getElementById("disamount").value=disamount;
+
+		paidamount=st-disamount;
+		document.getElementById("total").value= paidamount
+
+	}
+	
+</script>

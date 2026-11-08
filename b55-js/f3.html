@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Login </h1>
+
+	<form>
+		
+		<input type="text" name="username" placeholder="Username" id="user"><br>
+		
+		<p id="usererror"></p>
+
+		<input type="password" name="pass" placeholder="Password" id="pass"><br>
+		<p id="passerror"></p>
+
+		<input type="submit" onclick=" return fun()" ><br>
+
+	</form>
+
+</body>
+</html>
+
+<script type="text/javascript"
+>
+
+function fun()
+{
+	u= document.getElementById("user").value;
+	temp=true;
+
+	if(u.length ==0)
+	{
+		document.getElementById("usererror").innerText="Username is required"
+		temp=false;
+	}
+
+	else if (u.length<6)
+	{
+		document.getElementById("usererror").innerText="Username Must be 5 characters"
+		temp=false;
+	}
+
+	else if(u.length>=10)
+	{
+		document.getElementById("usererror").innerText="Username can be  maximum 10 characters long "
+		temp=false;
+	}
+	else
+	{
+		document.getElementById("usererror").innerText="";
+	}
+
+
+
+	p= document.getElementById("pass").value;
+
+	if(p.length ==0)
+	{
+		document.getElementById("passerror").innerText="password is required"
+	   temp=false;
+	}
+
+	else if (p.length<6)
+	{
+		document.getElementById("passerror").innerText="password Must be 5 characters"
+	    temp=false;
+	}
+
+	else if(p.length>=10)
+	{
+		document.getElementById("passerror").innerText="password can be  maximum 10 characters long "
+	   temp=false;
+	}
+	else
+	{
+		document.getElementById("passerror").innerText="";
+	}
+
+	return temp;
+}
+	
+
+</script>
+
+<style type="text/css">
+	#usererror, #passerror
+	{
+		color: red
+	}
+</style>

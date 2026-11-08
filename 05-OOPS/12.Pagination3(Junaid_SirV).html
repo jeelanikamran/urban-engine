@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body onload="showdata()">
+    <div id="userwrapper"></div>
+
+    <div id="pagewrapper"></div>
+    <!--
+    <div>
+      <label>Per Page</label>
+      <select onchange="changeperpage()" id="userperpage">
+        <option>2</option>
+        <option>3</option>
+        <option>5</option>
+        <option>10</option>
+      </select>
+    </div> -->
+  </body>
+</html>
+
+<script type="text/javascript">
+  users = [
+    { id: 1, name: "Kamran", age: 22 },
+    { id: 2, name: "Junaid", age: 22 },
+    { id: 3, name: "Abuzar", age: 22 },
+    { id: 4, name: "Hazik", age: 22 },
+    { id: 5, name: "Anas", age: 22 },
+    { id: 6, name: "Ahsaan", age: 22 },
+    { id: 7, name: "Zaydu", age: 22 },
+    { id: 8, name: "Toib", age: 22 },
+    { id: 9, name: "Furqan", age: 22 },
+    { id: 10, name: "Faheem", age: 22 },
+  ];
+  currentpage = 1;
+  perpage = 3;
+  totalusers = users.length;
+
+  function changepage(pageno) {
+    currentpage = pageno;
+    showdata();
+  }
+
+  function showdata() {
+    totalpages = totalusers / perpage;
+    totalpages = Math.ceil(totalpages);
+    start = (currentpage - 1) * perpage;
+    end = currentpage * perpage;
+
+    currentusers = users.slice(start, end);
+    // console.log(currentusers);
+
+    temp = "";
+    currentusers.forEach((u) => {
+      temp += `<p>
+        ID: ${u.id}<br>
+        Name: ${u.name}<br>
+        Age: ${u.age}
+        </p>
+        <hr>`;
+
+    });
+
+    document.getElementById("userwrapper").innerHTML = temp;
+
+    showbuttons();
+
+    t = "btn_" + currentpage;
+    document.getElementById(t).style.backgroundColor = "blue";
+  }
+
+  //   function changeperpage() {
+  //     perpage = document.getElementById("userperpage").value;
+  //     totalpages = totalusers / perpage;
+  //     totalpages = Math.ceil(totalpages);
+  //     showbuttons();
+
+  //     showdata();
+  //   }
+
+  function pre() {
+    if (currentpage == 1) {
+      currentpage = totalpages;
+    } else {
+      currentpage--;
+      changepage(currentpage);
+    }
+
+    showdata();
+  }
+
+  function nxt() {
+    if (currentpage == totalpages) {
+      currentpage = 1;
+    } else {
+      currentpage++;
+      changepage(currentpage);
+    }
+
+    showdata();
+  }
+
+  function showbuttons() {
+    temp = "";
+
+    temp += '<button onclick="pre()"> Prevoius</button>';
+
+    for (i = 1; i <= totalpages; i++) {
+      temp += `<button onclick="changepage(${i})" id="btn_${i}"> ${i} </button>`;
+    }
+    temp += '<button onclick="nxt()"> nxt</button>';
+
+    document.getElementById("pagewrapper").innerHTML = temp;
+  }
+</script>

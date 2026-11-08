@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Captcha</title>
+</head>
+<body onload="generateNew()">
+
+    <form onsubmit="return checksum()">
+
+        <input type="text" id="captchaReturn" placeholder="CAPTCHA required!!" required>
+        <span id="Coutput" ></span> <button type="button" onclick="generateNew()"><i class="fa-solid fa-rotate-right"></i></button>
+        <p id = 'warning'>Invalid Captcha Code!!!!</p>
+        <br><br>
+        <input type="submit" value="Verify">
+
+    </form>
+
+</body>
+</html>
+<script>
+    let cap = '';
+
+    function generateNew()
+    {
+        cap ="";
+        const str ="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    for(let i=0; i < 6; i++)
+{
+     let x = Math.random();
+     let len = str.length;
+        x = x*len;
+            x = Math.floor(x);
+                    cap +=str[x];
+}
+            document.getElementById("Coutput").innerText = cap;
+            document.getElementById("captchaReturn").value = "";
+            document.getElementById("warning").style.display = "none";
+    }
+
+    function checksum()
+    {
+         let checkS = document.getElementById("captchaReturn").value
+
+         if(checkS === cap) // === Strict Equality!
+         {
+            document.getElementById("warning").style.display = "none";
+            return true;
+         }
+         else
+         {
+            document.getElementById("warning").style.display = "block";
+            return false;
+         }
+
+    }
+
+</script>
+<style>
+    #Coutput
+    {
+        padding: 8px;
+        margin: 12px;
+        /* background-color: black; */
+        /* color: white; */
+        /* border: 1px solid rgb(11, 8, 14) ; */
+    }
+
+    #warning
+    {
+        display: none;
+        color: red;
+    }
+</style>

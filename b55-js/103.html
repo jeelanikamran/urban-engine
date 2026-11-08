@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+
+	<div id="downloadwrapper">
+		<div id="progress">
+			
+		</div>
+		
+	</div>
+
+	<br>
+
+	<button onclick="fun()">Download</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	myprogress=0;
+	function fun()
+	{
+       setInterval(abc, 50);
+	}
+
+
+	function abc()
+	{
+		if(myprogress<100)
+		{
+			myprogress++;
+
+		    document.getElementById("progress").style.width=myprogress+"%";
+
+		    document.getElementById("progress").innerText=myprogress+"%";
+		}
+		 
+	}
+</script>
+
+<style type="text/css">
+	#downloadwrapper
+	{
+		width: 100%;
+		height: 50px;
+		background-color: whitesmoke;
+	}
+	#progress
+	{
+		background-color: green;
+		width: 0%;
+		height: 50px;
+		text-align: center;
+	}
+</style>

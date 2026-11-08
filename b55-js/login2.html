@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="generateNumbers()">
+
+		<h1>Login</h1>
+	<form>
+		<input type="text" placeholder="Username" name="username"><br/>
+		<input type="password" placeholder="Password" name="password"><br/>
+
+		<input type="text" placeholder="Enter " required id="userenteredcode"> 
+		<label id="codewrapper"></label>
+		<button type="button" onclick="generateNumbers()">refresh</button>
+		<br/>
+		<p id="error">Invalid! Use your mind</p>
+
+
+		<input type="submit" onclick=" return fun()">
+    </form>		
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function generateNumbers()
+	{
+		x=Math.random();
+		x= x*10;
+		x=Math.floor(x)
+
+
+		y=Math.random();
+		y= y*10;
+		y=Math.floor(y)
+
+		document.getElementById("codewrapper").innerText=x + '+'+ y +'=';
+
+
+ 
+
+	}
+
+	function fun()
+	{
+        temp= document.getElementById("userenteredcode").value;
+        z=x+y;
+
+        temp=parseInt(temp);
+         z=parseInt(z);
+
+
+        if (temp== z)
+        {
+        	return true
+        }
+        else
+        {
+        	document.getElementById("error").style.display="block"
+        	return false;
+        }
+	}
+	
+
+</script>
+
+<style type="text/css">
+	#codewrapper
+	{
+		background-color: black;
+		color: white;
+		padding: 10px;
+		
+	}
+	#error
+	{
+		color: red;
+	
+		display: none;
+	}
+</style>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+</head>
+<body>
+    <script>
+        class Student {
+            id;
+            name;
+            english_marks;
+            math_marks;
+            sst_marks;
+            sc_marks;
+            urdu_marks;
+
+            passB;
+            failB;
+            totalM;
+
+            // Method to calculate results
+            calculate() {
+                this.passB = 0;
+                this.failB = 0;
+                this.totalM = 0;
+
+                if (this.english_marks > 33) {
+                    this.totalM += this.english_marks;
+                    this.passB++;
+                }
+
+                if (this.math_marks > 33) {
+                    this.totalM += this.math_marks;
+                    this.passB++;
+                }
+
+                if (this.urdu_marks > 33) {
+                    this.totalM += this.urdu_marks;
+                    this.passB++;
+                }
+
+                if (this.sc_marks > 33) {
+                    this.totalM += this.sc_marks;
+                    this.passB++;
+                }
+
+                if (this.sst_marks > 33) {
+                    this.totalM += this.sst_marks;
+                    this.passB++;
+                }
+
+                this.failB = 5 - this.passB;
+            }
+
+            // Method to display results
+            display() {
+                document.write(
+                    "ID: " + this.id + "<br>" +
+                    "Name: " + this.name + "<br>" +
+                    "English: " + this.english_marks + "<br>" +
+                    "Math: " + this.math_marks + "<br>" +
+                    "Urdu: " + this.urdu_marks + "<br>" +
+                    "SST: " + this.sst_marks + "<br>" +
+                    "Science: " + this.sc_marks + "<br><br>" +
+                    "Total Marks: " + this.totalM + "<br>" +
+                    "Subjects Passed: " + this.passB + "<br>" +
+                    "Subjects Failed: " + this.failB
+                );
+            }
+        }
+
+        // Object creation
+        let s1 = new Student();
+
+        s1.id = parseInt(prompt("Enter ID ->"));
+        s1.name = prompt("Enter Name:");
+        s1.english_marks = parseInt(prompt("Enter English Marks:"));
+        s1.urdu_marks = parseInt(prompt("Enter Urdu Marks:"));
+        s1.math_marks = parseInt(prompt("Enter Math Marks:"));
+        s1.sst_marks = parseInt(prompt("Enter SST Marks:"));
+        s1.sc_marks = parseInt(prompt("Enter Science Marks:"));
+
+        s1.calculate();
+        s1.display();
+    </script>
+</body>
+</html>

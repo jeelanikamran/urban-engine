@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	 <img src="bg.jpg" id="bigimg">
+
+	 <br>
+	 <img src="bg.jpg" class="smallimages" onclick="changeimg('bg.jpg')">
+
+	  <img src="1.jpg" class="smallimages" onclick="changeimg('1.jpg')">
+
+	   <img src="2.jpg" class="smallimages" onclick="changeimg('2.jpg')">
+	   <img src="3.jpg" class="smallimages" onclick="changeimg('3.jpg')">
+
+     
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function changeimg(temp)
+	{
+		// alert(temp)
+
+		document.getElementById("bigimg").src=temp
+	}
+</script>
+
+<style type="text/css">
+	#bigimg 
+	{
+		width: 500px;
+		height: 500px;
+		margin: 40px;
+	}
+	.smallimages
+	{
+		width: 50px;
+		height: 50px;
+	}
+</style>

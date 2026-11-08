@@ -1,0 +1,139 @@
+<html> </html>
+<!-- Which is Bigger? -->
+
+<script>
+
+    x = prompt('Enter X: ');
+    y = prompt('Enter Y: ');
+    z = prompt('Enter Z: ');
+
+    x = parseInt(x);
+    y = parseInt(y);
+    z = parseInt(z);
+
+    if (x > y && x > z)
+    {
+        alert(x + ' is Greater Than ' + y + ' and ' + z);
+    }
+
+    else if (y > x && y > z)
+    {
+        alert(y + ' is Greater Than ' + x + ' and ' + z);
+    }
+
+    else if (z > x && z > y)
+    {
+        alert(z + ' is Greater Than ' + x + ' and ' + y);
+    }
+
+    else
+    {
+        alert("All are Equal");
+    }
+
+</script>
+
+
+<!-- Continue ? -->
+
+<script>
+    x = 1;
+
+    while(x < 10)
+{
+    if(x==3)
+{
+    x = x + 1; // helps in rectifying the infinte loop
+    continue; //skip the rest of this iteration and start the next iteration.
+}
+    document.write(x+"<br>")
+        x = x + 1;
+}
+</script>
+
+<!-- Increment -->
+
+<script>
+
+for(x = 0; x <= 5; x++)
+
+{
+    document.write(x+'<br>');
+}
+
+</script>
+
+<!-- 01. Array -->
+
+<script>
+    array_name = [1,4,6,9,14]
+    for(i=0; i<=4; i++) //simple iteration
+ {
+    document.write(array_name[i]) //based on the indecies output is played out
+    document.write('<br>')
+ }
+ </script>
+
+<!-- 02. Array -->
+
+<script>
+    floor = prompt('Enter Array Elements: ')
+    // floor = floor.split(' ') // You can turn this  into an array using split():
+    floor = floor.split(' ').map(Number); // .map(Number) converts each item using JavaScript's Number() conversion
+
+    for(i = 0; i < floor.length; i++ )
+{
+    document.write(floor[i]+ '<br>');
+}
+</script>
+
+<!-- 01. Random Number -->
+
+<script>
+    // Math.random() generates a random decimal number
+    // greater than or equal to 0 and less than 1.
+    // Range: 0 ≤ x < 1
+
+    x = Math.random();
+
+    alert(x);
+</script>
+
+
+<!-- 02. Random Number from 0 to less than 1000 -->
+
+<script>
+    // Math.random() gives:
+    // 0 ≤ random number < 1
+
+    // Multiplying by 1000 gives:
+    // 0 ≤ number < 1000
+
+    // The result is still a decimal number.
+    // Examples: 234.56, 789.12, 999.87
+
+    x = Math.random() * 1000;
+
+    alert(x);
+</script>
+
+
+<!-- 03. Random Integer from 100 to 999 -->
+
+<script>
+    // Math.random() gives:
+    // 0 ≤ random number < 1
+
+    // Multiply by 900:
+    // 0 ≤ number < 900
+
+    // Math.floor() removes the decimal part:
+    // 0 through 899
+
+    // Add 100:
+    // 100 through 999
+
+    let x = Math.floor(Math.random() * 900) + 100;
+
+    alert(x);
+</script>

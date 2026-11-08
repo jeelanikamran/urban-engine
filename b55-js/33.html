@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+
+	<div id="result1"></div>
+
+	<button onclick="fun()">Sum</button>
+
+	<div id="result2"> </div>
+
+	<button onclick="fun2()"> Sub</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun()
+	{
+		x=10;
+		y=20;
+		z=x+y;
+
+		document.getElementById("result1").innerText="sum is "+ z;
+	}
+
+	function fun2()
+	{
+		x=10;
+		y=20;
+		z=x-y;
+
+		document.getElementById("result2").innerText="sub is "+ z;
+	}
+</script>
+
+<style type="text/css">
+	#result1
+	{
+		background-color: whitesmoke;
+		padding: 20px;
+		margin: 10px;
+	}
+
+	#result2
+	{
+		background-color: blue;
+		padding: 20px;
+		margin: 10px;
+	}
+</style>
+
+<!--  even series
+odd series
+fact 
+ -->

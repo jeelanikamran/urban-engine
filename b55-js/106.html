@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div id="wrapper"></div>
+
+	<button onclick="fun()"> add para</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	function fun()
+	{
+		temp=document.createElement("p");
+		document.getElementById("wrapper").appendChild(temp)
+	}
+</script>
+
+<style type="text/css">
+	#wrapper
+	{
+		background-color: red;
+		padding: 20px;
+	}
+</style>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Login form</h1>
+
+	<input type="text" placeholder="Username"><br>
+	
+	<input type="password" placeholder="Password" id="pass">
+	<button onclick="fun()" id="btn">show</button>
+	<br>
+	
+	<input type="submit" >
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+	flag=0;
+
+	// 0  password
+	//  1 text
+
+	function fun()
+	{
+		if(flag==0)
+		{
+			document.getElementById("pass").type='text';
+			flag=1;
+			document.getElementById("btn").innerText='hide'
+		}
+		else
+		{
+			document.getElementById("pass").type='password';
+			flag=0;
+			document.getElementById("btn").innerText='show'
+		}
+		
+	}
+	
+</script>

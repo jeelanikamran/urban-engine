@@ -1,0 +1,147 @@
+<!-- 01. Length Analysis:  -->
+
+<script>
+
+str = ['a', 'b', 'c', 'd', 'e']
+    i = str.length-1;
+while(i>=0)
+{
+    document.write(str[i])
+    i--;
+    document.write('<br>')
+}
+
+</script>
+
+<!-- 02. Using for: -->
+
+<script>
+
+str = ['a', 'b', 'c', 'd', 'e']
+
+for(i = str.length-1; i >= 0; i --)
+{
+    document.write(str[i]);
+    document.write('<br>')
+}
+</script>
+
+<!-- 03. Count Vowels:  -->
+
+<script>
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    for(i=0; i<5; i ++)
+{
+    document.write(vowels[i])
+
+}
+    document.write('<br>')
+
+    for(i=vowels.length-1; i >=0; i --)
+    {
+    document.write(vowels[i])
+}
+</script>
+
+<!-- 04. Merge Two Strings: -->
+
+<script>
+    let str1 = ['a', 'b', 'c']
+    let str2 = ['d', 'e', 'f']
+
+    // let str3 = str1+str2; // This is not an array
+   let str3 = str1.concat(str2);
+
+    // in JS we use .concat function to concatinate two strings and create a 3rd array that stores it.
+    document.write(str3)
+</script>
+
+<!-- 05. Find Element -->
+
+<script>
+
+    let str = ['a', 'b', 'c', 'd', 'e', 'f'];
+    let element = prompt("Enter the Element:");
+
+    // Initially assume that the element is NOT found
+    let found = false;
+
+    // Loop through the entire array
+    for (let i = 0; i < str.length; i++) {
+
+        // Check whether the current element matches
+        // the element entered by the user
+        if (str[i] == element) {
+
+            // Display the matching element
+            document.write("Element Found: " + str[i]);
+
+            // Mark the element as found
+            found = true;
+
+            // Stop the loop because we found the element
+            break;
+        }
+    }
+
+    // After the loop, check whether we found the element
+    if (!found) {
+
+        // If found is still false, the element wasn't in the array
+        document.write("Element Not Found");
+
+    }
+
+</script>
+
+
+<script>
+
+    let fruits = ['Apple', 'Banana', 'Mango']; // Array
+    let find = prompt("Which Fruit You Wanna Find ? "); // Which element to find?
+        let found1 = false;
+    // Initially the element is not found
+
+    for (let i = 0; i < fruits.length; i++)
+    // i goes from 0 to fruits.length - 1
+    {
+        if (fruits[i] == find)
+        {
+            found1 = true;
+        let change = prompt("Enter the Replacement: "); // Replacement of that element
+
+            fruits[i] = change;
+            // Replace the element
+            break;// With break, it replaces the first [fruit] and stops searching.
+        }
+    }
+
+    if (!found1)
+    // keep found outside the loop otherwise the program can potentially print "Element Not Found!!",
+    // before the loop has finished searching the array.
+    {
+        document.write("Element Not Found!!");
+    }
+    else
+    {
+        document.write(fruits + '<br>'); //previously i wrote fruits[i], where i has already been replaced,
+                                        //  and is undefined also we want the whole array visible.
+    }
+
+</script>
+
+<!--
+    FLOW CHART
+    User enters fruit to find
+        ↓
+    Search array
+        ↓
+      Found?
+   ↙         ↘
+ NO           YES
+ ↓             ↓
+"Not Found"   Ask replacement
+                ↓
+             Replace fruit
+                ↓
+             Print array -->

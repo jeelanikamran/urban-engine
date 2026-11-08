@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	class Employee
+	{
+		id
+		name
+		sal
+		ta
+		da
+		gender
+		ts
+	};
+
+	e1= new Employee();
+
+	e1.id= parseInt(prompt("enter id"))
+	e1.name=prompt("enter name")
+	e1.sal= parseInt(prompt("enter salary"))
+	e1.ta= parseInt(prompt("enter ta"))
+	e1.da= parseInt(prompt("enter da"))
+	e1.gender=prompt("enter gender")
+
+	if(e1.gender== 'male')
+	{
+		e1.ts= e1.sal+e1.ta+e1.da;
+	}
+	else
+	{
+		e1.ts= e1.sal+e1.ta+e1.da+1000;
+
+	}
+
+      document.write(e1.ts)
+
+</script>

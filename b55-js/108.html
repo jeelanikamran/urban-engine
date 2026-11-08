@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+	<input type="text" placeholder="enter title " id="data"><button onclick="addtitle()">add title</button>
+
+</body>
+
+
+</html>
+
+<script type="text/javascript">
+	function addtitle()
+	{
+		temp=document.createElement('title');
+		temp.innerText=document.getElementById('data').value;
+       
+       document.head.appendChild(temp)
+	}
+</script>

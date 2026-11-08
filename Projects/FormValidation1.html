@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation </title>
+</head>
+<body>
+            <h1>Login</h1>
+
+<form onsubmit="return subMit()">
+    <!-- instead of onclick i used [onSubmit] - a function that is used in Form Validation and Submission Handling -->
+    <label for="userN">Username:</label>
+    <input type="text" id="userN">
+
+    <br>
+
+    <label for="passW">Password:</label>
+    <input type="password" id="passW">
+
+    <br>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>
+<script>
+    function subMit()
+    {
+       let u = document.getElementById("userN").value;
+       let p = document.getElementById("passW").value;
+
+       let temp = true;
+
+        if(u.length == 0)
+        {
+        alert("USERNAME is empty!")
+        temp = false;
+        }
+
+        if(p.length == 0)
+        {
+        alert("PASSWORD is empty!")
+        temp = false;
+        }
+    return temp;
+    }
+</script>
+<style>
+    h1
+    {text-align: center;}
+    /* form{
+        background-color: whitesmoke;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        /* border: 1px black 2px; */
+    /* }
+    button
+    {
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+
+    } */
+</style>

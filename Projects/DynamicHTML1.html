@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic HTML via InnerHTML</title>
+</head>
+<body>
+            <div id="wrapper"></div>
+            <button onclick="addPara()">Add Paragraph</button>
+</body>
+</html>
+
+<script>
+    function addPara()
+    {
+        document.getElementById('wrapper').innerHTML =`<p> </p>`;
+    }
+</script>
+
+<style>
+    #wrapper
+    {
+        background-color: whitesmoke;
+        margin: 80px;
+        height: 80px;
+    }
+</style>

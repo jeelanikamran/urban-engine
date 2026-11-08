@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Employees</h1>
+
+	<div id="wrapper">
+		
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	employees=[
+        {id:1, name:'amir', sal:100},
+
+         {id:2, name:'aqsa', sal:100},
+
+          {id:3, name:'babar', sal:100},
+           {id:4, name:'adil', sal:400},
+           {id:1, name:'amir', sal:100},
+
+         {id:2, name:'aqsa', sal:100},
+
+          {id:3, name:'babar', sal:100},
+           {id:4, name:'adil', sal:400},
+
+	];
+
+
+	temp='';
+
+	temp+='<table> ';
+	temp+="<tr>  <th> id </th> <th> name </th>  <th> salary </th> </tr>";
+
+
+	  employees.forEach((e)=>{
+
+	  	temp+='<tr>';
+	  	  temp+='<td>'+ e.id + '</td>';
+	  	  temp+='<td>'+ e.name + '</td>';
+	  	  temp+='<td>'+ e.sal + '</td>';
+	  	temp+='</tr>';
+
+	  })
+
+	  temp+='</table> ';
+
+
+	  console.log(temp)
+
+	  document.getElementById('wrapper').innerHTML=temp
+
+
+
+
+
+</script>

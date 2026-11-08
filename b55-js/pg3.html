@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+  <h1> Users List </h1>
+
+    <div id="wrapper">
+    	
+    </div>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	// array of objects = we use for each 
+	  users=[
+         {id:1, name:'amir', age:22},
+         {id:2, name:'aqsa', age:22},
+         {id:3, name:'abc', age:22},
+          {id:2, name:'axyz', age:22},
+         {id:3, name:'abc', age:22},
+          {id:2, name:'abh', age:22},
+         {id:3, name:'abc', age:22}
+
+	  ]
+
+	  temp='';
+
+	  users.forEach((u)=>{
+
+	  	  temp+='<p>' + u.name+ '</p>'
+
+	  })
+
+	  console.log(temp)
+
+	  document.getElementById("wrapper").innerHTML=temp
+
+	 
+
+
+</script>
+

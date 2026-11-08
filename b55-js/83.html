@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<button onclick="storeit()"> store </button>
+
+	<button onclick="getvalue()"> getvalue</button>
+
+	<button onclick="delvalue()"> delete it  </button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+	function storeit()
+	{
+		  todos=[
+                 {id:1, name:'gym', status:'pending'},
+                 {id:2, name:'gym', status:'pending'},
+                 {id:3, name:'school', status:'pending'},
+                 {id:4, name:'abc', status:'pending'},
+		       ];
+
+	    localStorage.setItem("todos",JSON.stringify(todos))	
+	}
+
+
+    function getvalue()
+    {
+    	todos=localStorage.getItem("todos")
+
+    	todos=JSON.parse(todos)
+
+    	console.log(todos)	
+
+    }
+
+    function delvalue()
+    {
+      localStorage.removeItem("todos")	
+    }
+
+	
+</script>

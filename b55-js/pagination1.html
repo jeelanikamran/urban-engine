@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+	  <div id="pagewrapper">
+	  	
+	  </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+  users=[
+         {id:1, name:'amir', age:22},
+         {id:2, name:'aqsa', age:22},
+         {id:3, name:'abc', age:22},
+          {id:4, name:'axyz', age:22},
+         {id:5, name:'hadiya', age:22},
+          {id:6, name:'adil', age:22},
+         {id:7, name:'kamran', age:22},
+         {id:8, name:'abcc', age:22},
+          {id:9, name:'adil', age:22},
+         {id:10, name:'kamran', age:22}
+
+	  ]
+	  currentpage=1;
+
+
+	  perpage=3
+	  totalusers= users.length
+	  totalpages= totalusers/perpage
+
+	  totalpages= Math.ceil(totalpages)
+
+	  currentusers=users.slice(0,3)
+	  console.log(currentusers)
+
+	  temp=''
+
+	  for(i=1;i<=totalpages; i++)
+	  {
+	  	// temp+='<button onclick="changepage(i)">'+ i + '</button>'
+	  	temp+=`<button onclick="changepage(${i})"> ${i} </button>`
+	  }
+
+	  document.getElementById("pagewrapper").innerHTML=temp
+
+
+   function changepage(pageno)
+   {
+   	      debugger
+             currentpage=pageno
+             
+              start= (currentpage-1)*perpage ;
+              end= (currentpage)*perpage
+
+             currentusers=users.slice(start,end)
+             console.log(currentusers)
+   }
+
+</script>
+
+<!-- 
+
+0 3
+3 6
+6 9
+9 
+
+
+start end 
+0     3
+3   6
+ -->

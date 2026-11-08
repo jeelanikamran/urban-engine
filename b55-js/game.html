@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="setvalues()">
+<div id="wrapper">
+     <p id="winnerwrapper"></p>
+	  <button class="all" onclick="fun(0)"></button>
+	  <button class="all" onclick="fun(1)"></button>
+	  <button class="all" onclick="fun(2)"></button>
+
+	  <br>
+
+	  <button class="all" onclick="fun(3)"></button>
+	  <button class="all" onclick="fun(4)"></button>
+	  <button class="all" onclick="fun(5)"></button>
+
+     <br>
+     <button class="all" onclick="fun(6)"></button>
+	  <button class="all" onclick="fun(7)"></button>
+	  <button class="all" onclick="fun(8)"></button>
+
+	  <BR/>
+
+
+	  <button onclick="resetgame()"> RESET </button>
+
+
+    <p> X won <p id="a"></p></p>
+    <p> 0 won <p id="b"></p></p>
+    <p> draw  <p id="c"></p></p>
+
+</div>
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	temp='0';
+  hits=0;
+
+  xwon=0;
+  owon=0;
+  draw=0;
+
+  document.getElementById("winnerwrapper").innerText='x turn';
+
+
+
+	function fun(i)
+	{
+        hits++;
+        arr=document.getElementsByClassName("all");
+        // alert(i)
+
+        if(temp=='0')
+        {
+          arr[i].innerText='X'
+          temp='X'
+            document.getElementById("winnerwrapper").innerText='0 turn';
+
+        }
+        else
+        {
+        	 arr[i].innerText='0'
+          temp='0'
+            document.getElementById("winnerwrapper").innerText='x turn';
+        }
+
+
+        arr[i].disabled=true;
+
+
+
+
+          if(
+          	  (arr[0].innerText=='X' && arr[1].innerText=='X' && arr[2].innerText=='X')
+          	  ||
+          	   (arr[3].innerText=='X' && arr[4].innerText=='X' && arr[5].innerText=='X')
+          	   ||
+          	    (arr[6].innerText=='X' && arr[7].innerText=='X' && arr[8].innerText=='X')
+                ||
+          	     (arr[1].innerText=='X' && arr[4].innerText=='X' && arr[7].innerText=='X')
+
+          	      ||
+          	     (arr[0].innerText=='X' && arr[3].innerText=='X' && arr[6].innerText=='X')
+
+          	      ||
+          	     (arr[2].innerText=='X' && arr[5].innerText=='X' && arr[8].innerText=='X')
+
+          	      ||
+          	     (arr[0].innerText=='X' && arr[4].innerText=='X' && arr[8].innerText=='X')
+
+          	      ||
+          	     (arr[2].innerText=='X' && arr[4].innerText=='X' && arr[6].innerText=='X')
+
+          	     )
+
+          {
+          	// alert("x won");
+              document.getElementById("winnerwrapper").innerText='X WON';
+            xwon++
+          	disableall();
+          }
+
+
+       else if(
+          	  (arr[0].innerText=='0' && arr[1].innerText=='0' && arr[2].innerText=='0')
+          	  ||
+          	   (arr[3].innerText=='0' && arr[4].innerText=='0' && arr[5].innerText=='0')
+          	   ||
+          	    (arr[6].innerText=='0' && arr[7].innerText=='0' && arr[8].innerText=='0')
+                ||
+          	     (arr[1].innerText=='0' && arr[4].innerText=='0' && arr[7].innerText=='0')
+
+          	      ||
+          	     (arr[0].innerText=='0' && arr[3].innerText=='0' && arr[6].innerText=='0')
+
+          	      ||
+          	     (arr[2].innerText=='0' && arr[5].innerText=='0' && arr[8].innerText=='0')
+
+          	      ||
+          	     (arr[0].innerText=='0' && arr[4].innerText=='0' && arr[8].innerText=='0')
+
+          	      ||
+          	     (arr[2].innerText=='0' && arr[4].innerText=='0' && arr[6].innerText=='0')
+          	)
+
+          {
+          	// alert("0 won");
+            document.getElementById("winnerwrapper").innerText='O won';
+            owon++
+          	disableall();
+          }
+
+          else if(hits==9)
+          {
+            // alert("game draw");
+             document.getElementById("winnerwrapper").innerText='draw';
+            draw++
+          }
+
+          setvalues();
+
+
+	}
+
+	function resetgame()
+	{
+		 arr=document.getElementsByClassName("all");
+
+		 for(i=0; i<9; i++)
+		 {
+		 	arr[i].innerText='';
+		 	arr[i].disabled=false
+		 }
+
+		 temp='0';
+     hits=0;
+       document.getElementById("winnerwrapper").innerText=' ';
+	}
+
+	function disableall()
+	{
+      arr=document.getElementsByClassName("all");
+
+		 for(i=0; i<9; i++)
+		 {
+		 	
+		 	arr[i].disabled=true
+		 }
+	}
+
+
+
+  function setvalues()
+  {
+     
+    document.getElementById("a").innerText=xwon;
+    document.getElementById("b").innerText=owon;
+    document.getElementById("c").innerText=draw;
+
+  }
+</script>
+
+<style type="text/css">
+	.all
+	{
+                 width: 20%;
+                 height: 30px;
+                 margin: 4px;
+                 vertical-align: top;
+	}
+
+	#wrapper
+	{
+		width: 20%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+		background-color: blue;
+		text-align: center;
+		padding: 30px;
+	}
+</style>

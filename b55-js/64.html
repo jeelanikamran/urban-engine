@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+  
+  <img src="bg.jpg" id="bigimg">
+
+  <br>
+
+  <img src="bg.jpg" class="smallimgs" onclick="fun(0)">
+  <img src="1.jpg" class="smallimgs" onclick="fun(1)">
+  <img src="2.jpg" class="smallimgs" onclick="fun(2)">
+  <img src="3.jpg" class="smallimgs" onclick="fun(3)">
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+ previuosIndex=0;
+  arr= document.getElementsByClassName("smallimgs");
+
+  arr[previuosIndex].style.border="2px solid red";
+
+
+ function fun(i)
+ {
+ 	
+
+ 	 arr= document.getElementsByClassName("smallimgs");
+       arr[previuosIndex].style.border="2px solid white";
+         arr[i].style.border="2px solid red";
+         previuosIndex=i;
+
+ 	 document.getElementById("bigimg").src= arr[i].src
+
+
+    // alert(i)
+ }
+
+	
+</script>
+
+<style type="text/css">
+	#bigimg 
+	{
+		width: 300px;
+		height: 300px;
+		margin: 100px;
+	}
+	.smallimgs
+	{
+		width: 100px;
+		height: 100px;
+		margin: 20px;
+	}
+</style>

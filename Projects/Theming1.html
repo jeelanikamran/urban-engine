@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark and White Theme</title>
+</head>
+<body onload="defaultTheme()">
+
+    <div id="platter">
+        <h1>Hello World!!!</h1>
+    </div>
+
+        <button onclick="applylight()" >Light Button </button>
+        <button onclick="applydark()" >Dark Button </button>
+
+</body>
+</html>
+<script>
+    debugger;
+    function defaultTheme()
+    {
+        document.getElementById("platter").setAttribute('class','btnlight');
+    }
+
+    function applylight()
+    {
+        document.getElementById("platter").setAttribute('class','btnlight');
+    }
+
+    function applydark()
+    {
+        document.getElementById("platter").setAttribute('class', 'btndark');
+    }
+</script>
+<style>
+    *
+    {
+        padding: 0px;
+        margin: 0px;
+    }
+.btnlight
+{
+    background-color: whitesmoke;
+    color: black;
+    padding: 14px;
+    /* font-size:medium; */
+    /* text-align:center; */
+}
+.btndark
+{
+    background-color: black;
+    color: whitesmoke;
+    padding: 14px;
+    /* font-size:medium; */
+    /* text-align: center; */
+}
+</style>

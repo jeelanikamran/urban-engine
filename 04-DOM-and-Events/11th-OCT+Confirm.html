@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Confirmation</title>
+    <!-- <script src="11thOCT-1script.js" defer></script> //ideal position to place this. -->
+</head>
+
+<body>
+    <p id =''>Kamran</p>
+    <button onclick="del()">DEL</button>
+
+    <p id="name">Anas</p>
+    <button onclick="del()">DEL</button>
+</body>
+
+</html>
+<script>
+    function del()
+    {
+       x = confirm('Are You Sure You Want To Delete ?');
+       document.getElementById('name').innerHTML=''
+    }
+
+</script>

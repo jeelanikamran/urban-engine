@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&display=swap" rel="stylesheet">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+	<h1>Theme</h1>
+
+	<div class="bothsides left">
+		<h2>Settings</h2>
+
+		 <h4>Question settings</h4>
+
+		 <label>Color</label>
+		 <input type="text" id="colorQ" placeholder="Color" onkeyup="setQcolor()">
+
+
+		 <label>Alignment</label>
+		   <select id="alignQ" onchange="setQAlign()">
+		   	<option>left</option>
+		   	<option>center</option>
+		   	<option>right</option>
+		   	
+		   </select>
+
+
+		   <label>FontSize</label>
+		   <select id="fontQ" onchange="setQFont()">
+		   	<option>16px</option>
+		   	<option>18px</option>
+		   	<option>22px</option>
+		   	
+		   </select>
+
+
+		 <h4>Answer Settings</h4>
+
+
+		 <label>Color</label>
+		 <input type="text" id="colorA" placeholder="Color" onkeyup="setAcolor()">
+
+
+
+
+
+
+
+		 <h4>Button Settings</h4>
+
+		 <label>Value</label>
+		 <input type="text" id="btnvalue" placeholder="Enter Value" onkeyup="setBvalue()">
+
+
+		 <label>BgColor</label>
+		 <input type="text" id="btnBgColor" placeholder="Background Color" onkeyup="setBBGcolor()">
+
+
+         <br>  <br>
+		 <label>Set Icons</label>
+		 <select id="newicon" onchange="setBIcon()">
+		 	<option>fa-solid fa-right-to-bracket</option>
+		 	<option>fa-solid fa-user-lock</option>
+		 	<option>fa-brands fa-openid</option>
+		 </select>
+
+
+		 <br>
+		  <h4>Form settings</h4>
+
+		 <label>Background Color</label>
+		 <input type="text" id="bgcolorForm" placeholder="Color" onkeyup="setFormBgcolor()">
+
+
+       
+        <label>Set Google Fonts</label>
+		 <select id="gfonts" onchange="setGfonts()">
+		 	<option>Roboto</option>
+		 	<option>Bitcount Ink </option>
+            <option>Cedarville Cursive</option>
+		 </select>
+		 <!-- padding
+
+		 height 
+		 width
+		 shado
+
+       border
+		  -->
+
+
+
+
+
+	</div>
+
+	<div class="bothsides right" id="form">
+		<h2>Preview</h2>
+		<h3 id="title"> What is js?</h3>
+		 <input type="text" id="answer" >
+
+		 <br>
+		 <button id="btn">
+		 	<i id="myicon" class="fa-solid fa-right-to-bracket"></i>
+		     Submit
+		  </button>
+
+
+
+	</div>
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function setQcolor()
+     {
+     	c= document.getElementById("colorQ").value;
+
+     	  document.getElementById("title").style.color=c;
+     }
+
+     function setQAlign()
+     {
+     	a= document.getElementById("alignQ").value;
+
+     	  document.getElementById("title").style.textAlign=a;
+     }
+
+     
+
+
+     function setQFont()
+     {
+     	a= document.getElementById("fontQ").value;
+
+     	  document.getElementById("title").style.fontSize=a;
+     }
+
+
+     function setAcolor()
+     {
+     	c= document.getElementById("colorA").value;
+
+     	  document.getElementById("answer").style.color=c;
+     }
+
+
+
+
+     function setBvalue()
+     {
+     	c= document.getElementById("btnvalue").value;
+     	  document.getElementById("btn").innerText=c;
+
+     }
+
+     function setBBGcolor()
+     {
+     	c= document.getElementById("btnBgColor").value;
+     	  document.getElementById("btn").style.backgroundColor=c;
+     }
+
+
+     function setBIcon()
+     {
+     	 c= document.getElementById("newicon").value;
+     	 // alert(c)
+
+     	 document.getElementById("myicon").setAttribute('class', c)
+     }
+
+     function setFormBgcolor()
+     {
+     	 c= document.getElementById("bgcolorForm").value;
+     	 // alert(c)
+
+     	 document.getElementById("form").style.backgroundColor=c;
+     }
+
+       function setGfonts()
+     {
+
+     	 c= document.getElementById("gfonts").value;
+     	 alert(c)
+
+     	 document.getElementById("form").style.fontFamily=c;
+     }
+</script>
+
+<style type="text/css">
+	h1
+	{
+		text-align: center;
+		padding: 10px
+	}
+
+	.bothsides
+	{
+		display: inline-block;
+		width: 40%;
+		padding: 20px;
+		vertical-align: top;
+	}
+	h2
+	{
+		text-align: center;
+	}
+	.left
+	{
+		background-color: whitesmoke;
+	}
+
+
+</style>

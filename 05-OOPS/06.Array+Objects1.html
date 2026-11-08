@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Objects 1</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+  </body>
+</html>
+
+<script>
+  class Employee {
+    constructor(id, name) {
+      this.id = id;
+      this.name = name;
+    }
+
+    display() {
+      // Method 1
+      // MISTAKE 1:
+      // Using innerText = overwrites the previous content.
+      // If we assign id first and name second, only name remains.
+      // Use += to append content instead.
+
+      document.getElementById("wrapper").innerText +=
+        this.id + " " + this.name + "\n";
+    }
+  }
+
+  // MISTAKE 2:
+  // Always declare variables using let or const.
+  // Without declaration, emp becomes a global variable.
+  let emp = []; // Empty array named 'emp'
+
+  emp[0] = new Employee(1, "Kamran");
+  emp[1] = new Employee(2, "Amir");
+  emp[2] = new Employee(3, "Junaid");
+
+  // MISTAKE 3:
+  // You originally wrote emp.lemgth
+  // Correct property name is emp.length
+  // JavaScript is case-sensitive and spelling-sensitive.
+
+  // MISTAKE 4:
+  // Declare the loop variable using let.
+  // This prevents accidentally creating a global variable.
+
+  for (let i = 0; i < emp.length; i++) {
+    emp[i].display();
+
+    // console.log(emp[i]);
+    // You can also use this to inspect each Employee object
+    // inside the browser's developer console.
+  }
+</script>

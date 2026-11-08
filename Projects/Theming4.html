@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Multiple Themes Option</title>
+
+       <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+</head>
+<body id="wrapper" onload="defaultTheme()">
+
+    <button onclick="twoSplit()">
+    <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+    <!-- <br><br> -->
+
+    <!-- <hr> -->
+
+
+
+        <!-- <button onclick="btnPurple()">
+                Purple
+        </button>
+
+        <button onclick="btnBlue()">
+                Blue
+        </button> -->
+
+</body>
+</html>
+
+<script>
+    let isDark = false;
+    function defaultTheme()
+    {
+        document.getElementById("wrapper").setAttribute('class', 'lightTheme')
+        isDark = true;
+    }
+//
+    function twoSplit()
+    {
+        if(isDark === false)
+    {
+        document.getElementById("wrapper").setAttribute('class', 'lightTheme')
+        isDark = true;
+    }
+    else
+    {
+        document.getElementById("wrapper").setAttribute('class', 'darkTheme')
+        isDark = false;
+    }
+
+    }
+
+
+        function btnPurple()
+    {
+        document.getElementById("restPage").setAttribute('class', 'purpleTheme')
+    }
+
+        function btnBlue()
+    {
+        document.getElementById("restPage").setAttribute('class', 'blueTheme')
+    }
+
+</script>
+<style>
+    .lightTheme
+    {
+        background-color: whitesmoke;
+        color: black;
+    }
+       .darkTheme
+    {
+        background-color: black;
+        color: whitesmoke;
+    }
+       .purpleTheme
+    {
+        background-color: purple;
+        color: whitesmoke;
+    }
+       .blueTheme
+    {
+        background-color: blue;
+        color: whitesmoke;
+    }
+
+</style>

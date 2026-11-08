@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes and Objects</title>
+</head>
+<body>
+    <script>
+        class Student { // defines a blueprint for student objects.
+            id;
+            name;
+            roll_number;
+            marks;
+        }
+        // Those are public class fields.
+        // Their initial values are undefined until you assign something else.
+
+        let obj = new Student(); // creates an instance of that class.
+
+        obj.id = 1; // assigns a value to the object's id property
+        obj.name = 'Kamran';
+        obj.roll_number = 37;
+        obj.marks = 200;
+
+        console.log(obj); // lets you inspect the entire object in your browser's developer console.
+
+        document.write(obj.id + "<br>");
+        document.write(obj.name + "<br>");
+        document.write(obj.roll_number + "<br>");
+        document.write(obj.marks + ' marks');
+    </script>
+</body>
+</html>

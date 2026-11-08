@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h1>Password Generator app</h1>
+    Small Letters <input type="checkbox" class="all" checked><br>
+
+    Capital Letters <input type="checkbox" class="all" ><br>
+  
+    Special Charcters <input type="checkbox" class="all"><br>
+    Digits  <input type="checkbox" class="all"><br>
+
+
+
+    <input type="text" id="passlen"  placeholder="Enter Length"><button onclick="fun()">Generate</button> 
+
+
+    <p id="data"></p>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+    function fun()
+    {
+           cap='ABCDEZ'
+            small='abcdefz';
+            digits='0123456789'
+            special='@_.,~!';
+          arr= document.getElementsByClassName("all");
+
+            
+                str=''
+            if(arr[0].checked)
+            {
+              str+=small
+            }
+
+            if(arr[1].checked)
+            {
+              str+=cap
+            }
+
+            if(arr[2].checked)
+            {
+              str+=special
+            }
+             
+
+            if(arr[3].checked)
+            {
+              str+=digits
+            }
+        	
+
+
+        
+    
+
+             len=str.length
+
+           
+            
+            // 6
+
+            pass=''
+
+            n= document.getElementById("passlen").value;
+
+            for(i=0; i<n; i++)
+            {
+                x=Math.random();
+                x=x*len;
+                x=Math.floor(x); 
+                pass+=str[x]
+            }
+
+            document.getElementById("data").innerText=pass;
+      }      
+
+</script>

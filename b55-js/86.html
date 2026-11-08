@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+	<!-- <i class="fa-solid fa-eye-slash"></i>
+	 <i class="fa-solid fa-eye" id="eye"></i> -->
+
+	<h1>Login form</h1>
+
+	<input type="text" placeholder="Username"><br>
+	
+	<input type="password" placeholder="Password" id="pass">
+	
+
+	<button onclick="fun()" id="btn">
+	   <i class="fa-solid fa-eye" id="eye"></i>
+   </button>
+	
+
+	<br>
+	
+	<input type="submit" >
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+	flag=0;
+
+	// 0  password
+	//  1 text
+
+	function fun()
+	{
+		if(flag==0)
+		{
+			document.getElementById("pass").type='text';
+			flag=1;
+			temp=document.getElementById("eye");
+			temp.setAttribute('class', 'fa-solid fa-eye-slash')
+
+		}
+		else
+		{
+			document.getElementById("pass").type='password';
+			flag=0;
+			temp=document.getElementById("eye");
+			temp.setAttribute('class', 'fa-solid fa-eye')
+		}
+		
+	}
+	
+</script>

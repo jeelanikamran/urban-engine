@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Objects 4</title>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+</html>
+
+<script>
+    const users=[
+        {id:1, name: 'Kamran', age:25},
+        {id:2, name: 'Ahsaan', age:24},
+        {id:3, name: 'Abuzar', age:35},
+        {id:4, name: 'Junaid', age:20},
+        {id:5, name: 'Afeef', age:21},
+        {id:6, name: 'Hamza', age:19},
+        {id:7, name: 'Zaydu', age:27},
+        {id:8, name: 'Hazik', age:23}
+    ]
+
+   let temp = ``;
+
+    users.forEach((u)=>
+    {
+        temp+=`<p> ${u.name} </p>`
+    })
+
+    console.log(temp);
+    document.getElementById('wrapper').innerHTML = temp
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="applytheme()">
+
+	<div id="header"> Code today</div>
+
+
+	<br/>
+	<br>
+
+	<button onclick="applythemelight()" id="btnlight">Light Theme</button>
+	<button onclick="applythemedark()" id="btndark">Dark Theme</button>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	function applytheme()
+	{
+		debugger;
+		temp=localStorage.getItem('mytheme');
+		if(temp==null)
+		{
+		  document.getElementById("header").setAttribute('class', 'lighttheme');
+
+		}
+		else
+		{
+		   document.getElementById("header").setAttribute('class', temp);
+
+		}
+
+	}
+
+
+	function applythemelight()
+	{
+		document.getElementById("header").setAttribute('class', 'lighttheme')
+
+		localStorage.setItem('mytheme', 'lighttheme');
+	}
+
+	function applythemedark()
+	{
+		document.getElementById("header").setAttribute('class', 'darktheme')
+		localStorage.setItem('mytheme', 'darktheme');
+
+	}
+</script>
+
+
+<style type="text/css">
+	*
+	{
+		margin: 0;
+		padding: 0;
+	}
+	.lighttheme
+	{
+		background-color: whitesmoke;
+		color: black;
+		padding: 20px;
+		font-size: 30px
+	}
+
+	.darktheme
+	{
+		background-color: black;
+		color: white;
+		padding: 20px;
+		font-size: 30px
+	}
+
+	#btnlight
+	{
+		background-color: whitesmoke;
+		color: black;
+		padding: 5px;
+	}
+
+	#btndark
+	{
+		background-color: black;
+		color: white;
+		padding: 5px;
+	}
+</style>
+
+
+<!-- localStorage.setItem("variablname", value) 
+	                       x,10
+
+
+	   t=localStorage.getItem('x')
+
+
+	   localStorage.removeItem('x')
+	                       
+-->

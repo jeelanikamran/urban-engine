@@ -1,0 +1,32 @@
+<script type="text/javascript">
+	employees =[
+      {id:1, name:'amir', gender:'male',sal:100, ta:20, da:8, ts:0 },
+      {id:2, name:'aqsa', gender:'female',sal:100, ta:20, da:8, ts:0 },
+      {id:3, name:'babar', gender:'male',sal:100, ta:20, da:8, ts:0 },
+      {id:4, name:'abc', gender:'female',sal:100, ta:20, da:8, ts:0 },
+
+	];
+
+
+	employees.forEach((e)=>{
+              
+              if(e.gender=='female')
+              {
+                e.ts= e.sal+e.ta+e.da+1000;
+              }
+              else
+              {
+              	e.ts= e.sal+e.ta+e.da;
+              }
+	})
+
+
+
+
+
+employees.forEach((e)=>{
+
+  document.write(e.id + " "+ e.name+ " "+ e.gender +" "+ e.ts + "<br>");
+})
+
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+</head>
+<body onload="generateCap()">
+
+	<h1>Login</h1>
+	<form>
+		<input type="text" placeholder="Username" name="username"><br/>
+		<input type="password" placeholder="Password" name="password"><br/>
+
+		<input type="text" placeholder="Enter Captcha Code" required id="userenteredcode"> 
+		<label id="codewrapper"></label>
+		<button type="button" onclick="generateCap()">refresh</button>
+		<br/>
+		<p id="error">Invalid Captcha code</p>
+
+
+		<input type="submit" onclick=" return fun()">
+    </form>		
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+	function generateCap()
+	{
+        str='0123456789abcdefghijkzABCDEFJZ';
+		 l= str.length;
+		 captchaCode='';
+		 for(i=0; i<5; i++)
+		 {
+		 	 x=Math.random();
+		     x=x*l;
+		     x=Math.floor(x)
+		     captchaCode+=str[x]
+	      
+		 }
+
+		 document.getElementById("codewrapper").innerText=captchaCode
+	}
+
+	function fun()
+	{
+        temp= document.getElementById("userenteredcode").value;
+
+        if (temp== captchaCode)
+        {
+        	return true
+        }
+        else
+        {
+        	document.getElementById("error").style.display="block"
+        	return false;
+        }
+	}
+	
+
+
+
+	
+
+</script>
+
+
+<style type="text/css">
+	#codewrapper
+	{
+		background-color: black;
+		color: white;
+		padding: 10px;
+		font-family: "Eagle Lake", serif;
+	}
+	#error
+	{
+		color: red;
+		/*visibility: hidden;*/
+		display: none;
+	}
+</style>

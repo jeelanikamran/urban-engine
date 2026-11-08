@@ -1,0 +1,131 @@
+<!-- We are utilising LocalStorage to save the selected theme! -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Imports Font Awesome icons for the theme toggle button -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    <title>Dark and White Theme</title>
+</head>
+
+<!-- Calls defaultTheme() when the page finishes loading -->
+<body onload="defaultTheme()">
+
+    <!-- This container will receive the lightTheme or darkTheme class -->
+    <div id="wrapper">
+        <h1>Hello World!!!</h1>
+    </div>
+
+    <!-- Clicking this button switches between the two themes -->
+    <button onclick="setTheme()">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+    <script>
+        // Stores whether the currently selected theme is dark.
+        // false = light theme, true = dark theme.
+        let isDark = false;
+
+        // Runs when the webpage loads.
+        // Restores the previously saved theme from localStorage.
+        function defaultTheme() {
+
+            // Retrieves the saved theme using the key "myThemes".
+            // Returns null if no value has been saved yet.
+            const themes = localStorage.getItem('myThemes');
+
+            // If no theme has been saved, use the light theme by default.
+            if (themes === null) {
+                document.getElementById("wrapper")
+                    .setAttribute('class', 'lightTheme');
+            } else {
+
+                // If a theme was saved, apply its class to the wrapper.
+                document.getElementById("wrapper")
+                    .setAttribute('class', themes);
+            }
+
+            // Synchronises the Boolean variable with the saved theme.
+            // true only when the saved value is "darkTheme".
+            isDark = themes === 'darkTheme';
+        }
+
+        // Switches the theme when the button is clicked.
+        function setTheme() {
+
+            // If the current theme is light, switch to dark.
+            if (isDark === false) {
+
+                // Applies the CSS class responsible for dark styling.
+                document.getElementById("wrapper")
+                    .setAttribute('class', 'darkTheme');
+
+                // Saves the dark theme so it survives page reloads.
+                localStorage.setItem('myThemes', 'darkTheme');
+
+                // Updates the current theme state.
+                isDark = true;
+
+            } else {
+
+                // If the current theme is dark, switch to light.
+                document.getElementById("wrapper")
+                    .setAttribute('class', 'lightTheme');
+
+                // Saves the light theme in localStorage.
+                localStorage.setItem('myThemes', 'lightTheme');
+
+                // Updates the current theme state.
+                isDark = false;
+            }
+        }
+    </script>
+
+    <style>
+        /* Removes default margins and padding from all elements.
+           box-sizing makes width and height calculations easier. */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .lightTheme {
+            background-color: whitesmoke;
+            color: black;
+            padding: 14px;
+            /* font-size: medium; */
+            /* text-align: center; */
+        }
+
+        .darkTheme {
+            background-color: black;
+            color: whitesmoke;
+            padding: 14px;
+            /* font-size: medium; */
+            /* text-align: center; */
+        }
+
+        button {
+            width: 30px;
+            height: 23px;
+            margin-top: 10px;
+            /* margin-left: 500px; */
+        }
+    </style>
+
+</body>
+</html>
+

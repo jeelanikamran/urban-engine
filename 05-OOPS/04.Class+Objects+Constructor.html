@@ -1,0 +1,37 @@
+<!--
+A constructor is used to initialize an object's
+properties when an instance is created.
+
+In JavaScript, the constructor is called automatically
+when an object is instantiated using the `new` keyword.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructor</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  class Employee {
+
+    id; //-> These are Class Fields.
+    name;// -> ,,
+    
+    constructor(id, name) // these are parameteres.
+  {
+    this.id = id; // -> This is an Objects property.
+    this.name = name;
+  }
+  }
+
+
+//Object Creation.
+  let e1 = new Employee(1, "Kamran");
+  let e2 = new Employee(2, "Anas");
+
+  console.log(e1);
+  console.log(e2);
+</script>

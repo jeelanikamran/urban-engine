@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>User List</h1>
+
+	<div id="wrapper">
+		
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	users=[
+     {id:1, name:"amir", class:'bca'},
+     {id:2, name:"aqsa", class:'bca'},
+     {id:3, name:"babar", class:'mca'},
+     {id:4, name:"mehak", class:'bca'},
+
+	]
+
+	temp='';
+
+   temp+='<table>';
+     temp+='<tr>';
+     temp+='<th> id </th>';
+     temp+='<th> name </th>';
+     temp+='<th> class </th>';
+    temp+="</tr>";
+
+
+  users.forEach((u)=>{
+     temp+='<tr>';
+	     temp+='<td>'+ u.id + "</td>";
+	     temp+='<td>'+ u.name + "</td>";
+	     temp+='<td>'+ u.class + "</td>";
+	   
+     temp+='</tr>';
+
+  })
+
+   temp+='</table>';
+
+   document.getElementById("wrapper").innerHTML=temp
+
+
+
+</script>

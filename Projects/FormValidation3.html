@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        #userE, #passE {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <form onsubmit="return subMit()">
+        <label for="userN">Username:</label>
+        <input type="text" id="userN" name="USERNAME"
+               placeholder="Enter Username!">
+        <p id="userE"></p>
+
+        <label for="passW">Password:</label>
+        <input type="password" id="passW" name="PASSWORD"
+               placeholder="Enter Password!">
+        <p id="passE"></p>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function subMit() {
+            let temp = true;
+
+            let user = document.getElementById("userN").value;
+            let pass = document.getElementById("passW").value;
+
+            if (user.length === 0) {
+                document.getElementById("userE").innerText =
+                    "Username is empty!";
+                temp = false;
+            }
+            else if (user.length < 6) {
+                document.getElementById("userE").innerText =
+                    "Username must have at least 6 characters!";
+                temp = false;
+            }
+            else if (user.length >= 12) {
+                document.getElementById("userE").innerText =
+                    "Username must have fewer than 12 characters!";
+                temp = false;
+            }
+            else {
+                document.getElementById("userE").innerText = "";
+            }
+
+            if (pass.length === 0) {
+                document.getElementById("passE").innerText =
+                    "Password is empty!";
+                temp = false;
+            }
+            else if (pass.length < 6) {
+                document.getElementById("passE").innerText =
+                    "Password must have at least 6 characters!";
+                temp = false;
+            }
+            else if (pass.length >= 12) {
+                document.getElementById("passE").innerText =
+                    "Password must have fewer than 12 characters!";
+                temp = false;
+            }
+            else {
+                document.getElementById("passE").innerText = "";
+            }
+
+            if (temp === true) {
+                return confirm("Are you sure?");
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p id="para"> hello</p>
+
+	<button onclick="fun()">set it</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun()
+	{
+		temp=document.getElementById("para");
+		temp.setAttribute('class', 'abc');
+
+	}
+</script>
+
+
+<style type="text/css">
+	.abc
+	{
+		background-color: red;
+		color: white;
+		padding: 30px;
+	}
+</style>

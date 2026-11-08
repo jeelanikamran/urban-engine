@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+	 <h1>Todo List App</h1>
+	 <input type="text"  placeholder="Task name" id="name">
+	 <button onclick="add()">Add</button>
+
+
+	 <h3>My todos</h3>
+	 <div id="wrapper">
+	 	
+	 </div>
+
+	 <button onclick="delall()">Delete All</button>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	todos=[]
+
+	function add()
+	{
+		n= document.getElementById("name").value;
+		d= new Date();
+
+		 obj={id:todos.length+1, taskname:n, status:'Pending', dt:d.toLocaleString()}
+
+		 // alert(obj)
+		 // console.log(obj)
+		 todos.push(obj)
+
+		 console.log(todos)
+		 display();
+
+		 document.getElementById("name").value='';
+
+	}
+
+
+
+	function display()
+	{
+
+		temp=``;
+
+		temp+=`<table> 
+		    <tr>
+		        <th> id </th>
+		        <th>  task name </th>
+		        <th> Status</th>
+		        <th> date time</th>
+		        <th> Action</th>
+		        </tr>`;
+
+		  todos.forEach((t, index)=>{
+                  temp+=`<tr>
+                      <td> ${t.id} </td>
+                      <td> ${t.taskname} </td>
+                       <td> ${t.status} </td>
+                       <td> ${t.dt}</td>
+                       <td> <button onclick='deleteit(${index})'>Delete </button></td>
+                      </tr>
+
+                      `;
+		  })      
+
+
+		  temp+=`</table>`;
+
+      document.getElementById("wrapper").innerHTML=temp
+
+	}
+
+
+
+
+	function deleteit(index)
+	{
+		// alert(index)
+
+		todos.splice(index,1);
+		display();
+	}
+
+	function delall()
+	{
+		todos=[];
+		display();
+	}
+
+
+</script>
+

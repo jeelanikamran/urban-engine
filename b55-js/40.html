@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<img src="off.gif" id="bulb">
+
+	<button onclick="fun()" id="btn"> on</button>
+
+
+</body>
+</html>
+<script type="text/javascript">
+	temp=0;
+
+	// 0 off
+	// 1 on
+	function fun()
+	{
+		if(temp==0)
+		{
+			document.getElementById("bulb").src='on.gif'
+
+			document.getElementById("btn").innerText='off'
+			temp=1;
+		}
+		else 
+		{
+			document.getElementById("bulb").src='off.gif'
+			temp=0;
+			document.getElementById("btn").innerText='on'
+		}
+		
+	}
+
+	
+</script>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Expense Tracker</h1>
+
+	<input type="text"  placeholder="Expense Name" id="name">
+	<input type="text" placeholder="Expense Amount" id="amount">
+
+  <select id="eCat">
+    <option>Food</option>
+    <option>Shopping</option>
+    <option>Travel</option>
+    <option>Education</option>
+  </select>
+
+ 
+
+	<button onclick="addit()">ADD</button>
+
+
+	<h3>My expenses</h3>
+
+  <select id="selectedfilter" onchange="filterdata()">
+    <option>All</option>
+    <option>Food</option>
+    <option>Shopping</option>
+    <option>Travel</option>
+    <option>Education</option>
+
+  </select>
+
+	<div id="wrapper">
+		
+	</div>
+
+  <div id="total"></div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+     expenselist=localStorage.getItem('expenselist');
+      expenselist= JSON.parse(expenselist);
+
+      if(expenselist==null)
+      {
+
+	     expenselist=[];
+      }
+      else
+      {
+      	display();
+        calculatetotal();
+      }
+
+
+
+	function addit()
+	{
+         name= document.getElementById("name").value;
+         amount= document.getElementById("amount").value;
+           category= document.getElementById("eCat").value;
+
+         obj={expensename: name, expenseamount: amount, category:category}
+
+         expenselist.push(obj)
+         localStorage.setItem("expenselist", JSON.stringify(expenselist))
+
+         display()
+	}
+
+
+	function display()
+	{
+           temp=``;
+
+           temp+=`<table> 
+                   <tr>
+                     <th> name </th>
+                     <th> amount </th>
+                     <th> category </th>
+                    </tr> `;
+
+              expenselist.forEach((e)=>{
+              	temp+=`<tr>  
+	              	       <td> ${e.expensename} </td>
+	                       <td> ${e.expenseamount} </td>
+                         <td> ${e.category} </td>
+                       </tr>
+              	       `
+              })     
+
+
+              temp+=`</table>`;
+
+
+           document.getElementById("wrapper").innerHTML=temp   
+	}
+
+  function calculatetotal()
+  {
+    t=0;
+    expenselist.forEach((e)=>{
+         t=t+parseInt(e.expenseamount)
+    })
+
+
+
+    document.getElementById("total").innerHTML="Total amount:"+ t;
+  }
+
+
+
+  function filterdata()
+  {
+    t=document.getElementById("selectedfilter").value
+     alert(t)
+  }
+</script>
+
+<style type="text/css">
+  #total
+  {
+    font-size: 30px;
+    padding: 20px;
+  }
+</style>
+
+
+<!-- 
+
+delete
+delete
+
+clear all
+
+ -->

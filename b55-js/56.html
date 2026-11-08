@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div id="header"> kashmir</div>
+
+  <button onclick="fun1()"> set theme1</button>
+
+  <button onclick="fun2()"> set Theme 2</button>
+
+
+  <button onclick="fun3()"> remove theme1</button>
+  <button onclick="fun4()"> remove theme2</button>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+function fun1()
+{
+
+
+	document.getElementById("header").setAttribute('class','theme1');
+
+}
+
+function fun2()
+{
+
+
+	document.getElementById("header").setAttribute('class','theme2');
+	
+}
+
+function fun3()
+{
+  document.getElementById("header").removeAttribute('class','theme1');	
+}
+
+function fun4()
+{
+  document.getElementById("header").removeAttribute('class','theme2');	
+}
+
+	
+</script>
+
+<style type="text/css">
+	.theme1
+	{
+		background-color: black;
+		color: white;
+		padding: 20px;
+		font-size: 30px;
+	}
+
+	.theme2
+	{
+		background-color: orange;
+		color: white;
+		padding: 10px;
+		font-size: 35px;
+		text-align: center;
+	}
+</style>

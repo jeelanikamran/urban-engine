@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Form 2</title>
+
+    <style>
+      #questionWrapper {
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: whitesmoke;
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .btnWrapper {
+        text-align: center;
+        padding: 20px;
+      }
+
+      #progressEnclosure {
+        width: 100%;
+        height: 35px;
+        background-color: whitesmoke;
+        display: none;
+      }
+
+      #progressBar {
+        background-color: green;
+        width: 0%;
+        height: 35px; /* MISTAKE: Your original progress bar had no height. */
+        color: white;
+        text-align: center;
+        transition: width 0.4s ease;
+      }
+
+      .selected {
+        background-color: lightgreen;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 8px 12px;
+        margin: 4px;
+      }
+
+      @media (max-width: 768px) {
+        #questionWrapper {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="questionWrapperFun()">
+    <!-- Progress Bar -->
+    <div id="progressEnclosure">
+      <div id="progressBar"></div>
+    </div>
+
+    <!-- Questions Wrapper -->
+    <div id="questionWrapper"></div>
+
+    <!-- Previous & Next Button Wrapper -->
+    <div class="btnWrapper">
+      <button onclick="previous()">Previous</button>
+      <button onclick="next()">Next</button>
+    </div>
+
+    <!-- Result Button -->
+    <div class="btnWrapper">
+      <button onclick="result()">Show Result</button>
+    </div>
+
+    <script>
+      let score = 0;
+
+      // MISTAKE: You declared only 3 empty answer slots.
+      // There are 12 questions, so we create 12 slots dynamically.
+      let userAnswers = Array(12).fill("");
+
+      let currentIndex = 0;
+
+      const questions = [
+        {
+          id: 1,
+          Title: "What is the full form of HTML?",
+          A: "HyperText Markup Language",
+          B: "HighText Machine Language",
+          C: "Hyper Transfer Markup Language",
+          D: "HyperText Markdown Language",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 2,
+          Title: "What does CSS stand for?",
+          A: "Computer Style Sheets",
+          B: "Cascading Style Sheets",
+          C: "Creative Style System",
+          D: "Colorful Style Sheets",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 3,
+          Title: "What is JavaScript?",
+          A: "A Programming Language",
+          B: "A CSS Framework",
+          C: "A Database",
+          D: "An Operating System",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 4,
+          Title: "Which HTML tag is used to create a hyperlink?",
+          A: "link",
+          B: "href",
+          C: "a",
+          D: "hyperlink",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 5,
+          Title: "Which CSS property changes the text color?",
+          A: "background-color",
+          B: "font-style",
+          C: "text-decoration",
+          D: "color",
+          correctAnswers: "D",
+        },
+
+        {
+          id: 6,
+          Title: "Which keyword declares a variable in JavaScript?",
+          A: "var",
+          B: "int",
+          C: "string",
+          D: "define",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 7,
+          Title: "Which HTML tag is used to insert an image?",
+          A: "picture",
+          B: "img",
+          C: "image",
+          D: "src",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 8,
+          Title: "Which method adds an element to the end of an array?",
+          A: "pop()",
+          B: "shift()",
+          C: "push()",
+          D: "unshift()",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 9,
+          Title:
+            "Which symbol is used for comments in JavaScript (single-line)?",
+          A: "//",
+          B: "/",
+          C: "#",
+          D: "**",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 10,
+          Title: "Which HTML tag creates an unordered list?",
+          A: "ol",
+          B: "ul",
+          C: "li",
+          D: "list",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 11,
+          Title: "What does DOM stand for?",
+          A: "Data Object Model",
+          B: "Document Oriented Method",
+          C: "Document Object Model",
+          D: "Digital Object Management",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 12,
+          Title: "Which method converts JSON into a JavaScript object?",
+          A: "JSON.stringify()",
+          B: "JSON.parse()",
+          C: "JSON.convert()",
+          D: "JSON.object()",
+          correctAnswers: "B",
+        },
+      ];
+
+      // MISTAKE: No need to hardcode 12 here.
+      // Derive the total from the array itself.
+      const totalQuestions = questions.length;
+
+      function questionWrapperFun() {
+        let temp = "";
+
+        // MISTAKE: Your original code used temp without let or const.
+        // This could accidentally create a global variable.
+
+        temp += `
+                <div>
+
+                    <h2>
+                        ${questions[currentIndex].id}. ${questions[currentIndex].Title}
+                    </h2>
+
+                    <p>
+                        <button class="${userAnswers[currentIndex] === "A" ? "selected" : ""}"
+                        onclick="checkANS(${currentIndex}, 'A')">
+                            A. ${questions[currentIndex].A}
+                        </button>
+                    </p>
+
+                    <p>
+                        <button class="${userAnswers[currentIndex] === "B" ? "selected" : ""}"
+                        onclick="checkANS(${currentIndex}, 'B')">
+                            B. ${questions[currentIndex].B}
+                        </button>
+                    </p>
+
+                    <p>
+                        <button class="${userAnswers[currentIndex] === "C" ? "selected" : ""}"
+                        onclick="checkANS(${currentIndex}, 'C')">
+                            C. ${questions[currentIndex].C}
+                        </button>
+                    </p>
+
+                    <p>
+                        <button class="${userAnswers[currentIndex] === "D" ? "selected" : ""}"
+                        onclick="checkANS(${currentIndex}, 'D')">
+                            D. ${questions[currentIndex].D}
+                        </button>
+                    </p>
+
+                </div>
+            `;
+
+        document.getElementById("questionWrapper").innerHTML = temp;
+      }
+
+      function previous() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        }
+
+        questionWrapperFun();
+      }
+
+      function next() {
+        // MISTAKE: You used currentIndex <= totalQuestions.
+        // This allows the index to become 12.
+        // The last valid index is 11 (totalQuestions - 1).
+
+        if (currentIndex < totalQuestions - 1) {
+          currentIndex++;
+        }
+
+        questionWrapperFun();
+      }
+
+      function checkANS(index, ans) {
+        // MISTAKE: You used == instead of =.
+        // == compares values; = assigns a value.
+
+        userAnswers[index] = ans;
+
+        console.log(userAnswers);
+
+        // Refresh the question to show the selected answer.
+        questionWrapperFun();
+      }
+
+      function result() {
+        score = 0;
+
+        // MISTAKE: Your original code used == without an if statement.
+        // You also incremented score unconditionally.
+        // This version only increments when the answer is correct.
+
+        for (let i = 0; i < totalQuestions; i++) {
+          if (userAnswers[i] === questions[i].correctAnswers) {
+            score++;
+          }
+        }
+
+        let percentage = (score / totalQuestions) * 100;
+
+        let progressEnclosure = document.getElementById("progressEnclosure");
+        let progressBar = document.getElementById("progressBar");
+
+        // MISTAKE: Your original IDs were "progresswrapper" and "progress".
+        // Your actual HTML IDs are "progressEnclosure" and "progressBar".
+
+        progressEnclosure.style.display = "block";
+
+        progressBar.style.width = percentage + "%";
+        progressBar.innerText = percentage + "%";
+
+        if (percentage < 60) {
+          progressBar.style.background = "red";
+        } else if (percentage < 90) {
+          progressBar.style.background = "orange";
+        } else {
+          progressBar.style.background = "green";
+        }
+
+        alert("Score: " + score + " / " + totalQuestions);
+        alert("Percentage: " + percentage + "%");
+      }
+    </script>
+  </body>
+</html>

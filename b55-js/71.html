@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+debugger;
+  employees=[
+              {"name":"amir", "gender" : "male","sal":220, ta:20, da:22, ts:0},
+              {"name":"aqsa", "gender": "female","sal":10, ta:29, da:22, ts:0},
+
+              {"name":"anas", "gender" : "male","sal":20, ta:24, da:27, ts:0},
+
+        ]
+
+
+
+
+        for(i=0; i<3; i++)
+        {
+        	   employees[i].ts= employees[i].sal+employees[i].ta+ employees[i].da;
+
+        	  if(employees[i].gender=='female')
+        	  {
+                 employees[i].ts+=1000;
+        	  }
+        }
+
+for(i=0; i<3; i++)
+{
+	  document.write(employees[i].name)
+	  document.write(" --")
+	    document.write(employees[i].ts)
+	      document.write("<br>")
+}
+</script>
+
+
+<!-- students  tm pb fb  -->

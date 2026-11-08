@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+
+	<div >
+		<h3>Users</h3>
+		<p id="usercountwrapper"></p>
+	</div>
+
+
+   <div >
+		<h3>Sales</h3>
+		<p id="salescountwrapper"></p>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	usercount=0;
+
+	setInterval(abc, 20);
+
+
+	function abc()
+	{
+		
+
+		if(usercount<567)
+		{
+			usercount++;
+
+			document.getElementById('usercountwrapper').innerText=usercount
+		}
+	}
+
+
+
+
+		salescount=0;
+
+	setInterval(xyz, 2);
+
+
+	function xyz()
+	{
+		
+
+		if(salescount<79675)
+		{
+			salescount=salescount+300;
+
+			document.getElementById('salescountwrapper').innerText=salescount
+		}
+	}
+
+
+
+</script>

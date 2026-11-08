@@ -1,0 +1,100 @@
+<script type="text/javascript">
+
+
+	class Employee
+	{
+		id;
+		name;
+		sal;
+		ta;
+		da;
+		ts;
+		gender;
+
+		constructor(id, name, sal, ta, da, gender)
+		{
+              this.id=id;
+              this.name=name;
+              this.sal=sal;
+              this.ta=ta;
+              this.da=da;
+              this.gender=gender;
+		} 
+
+		calculate()
+		{
+              if(this.gender=='male')
+              {
+              	this.ts= this.sal+this.ta+this.da
+              }
+              else
+              {
+              	this.ts= this.sal+this.ta+this.da+1000;
+              }
+		}
+
+		 display()
+		{
+			document.write(this.ts)
+			console.log(this)
+			
+		}
+
+		highestsal()
+		{
+			// display
+		}
+
+		// hiestta
+		// hiestda()
+
+		// average sal
+
+	}
+
+   arr=[];
+   n= prompt("enter no. of employees");
+   n=parseInt(n);
+
+   for (i=0; i<n;i++)
+   {
+   	  id= parseInt(prompt("enter id:"));
+   	  name=prompt("enter name:")
+   	  sal= parseInt(prompt("enter sal:"));
+   	  ta= parseInt(prompt("enter ta:"));
+   	  da= parseInt(prompt("enter da:"));
+
+   	 gender=prompt("enter gender:")   
+
+   	 arr[i]= new Employee(id, name, sal, ta, da, gender);
+
+
+   }
+
+   for (i=0; i<n; i++)
+   {
+   	  arr[i].calculate();
+   } 
+
+   for (i=0; i<n; i++)
+   {
+   	  arr[i].display();
+   }
+
+
+   // higeste sal
+
+ 
+</script>
+
+
+<!-- employee
+
+students
+tm
+pb
+fb
+
+//topper
+pass per   10  7  70
+ -->

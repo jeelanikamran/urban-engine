@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+
+      <h1>Login</h1>
+	<form>
+		
+		<input type="text" name="username"  placeholder="Username" id="username"><br>
+		<p id="usererror">User name is required</p>
+
+		<input type="password" name="pass"  placeholder="Password" id="pass">
+		<br>
+		<p id="passerror">Password is required</p>
+
+		<input type="submit" onclick="return  fun()">
+
+	</form>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun()
+	{
+		u= document.getElementById("username").value
+
+		p= document.getElementById("pass").value
+		temp=true;
+
+		if(u.length==0)
+		{
+			document.getElementById("usererror").style.visibility='visible'
+			temp=false
+		}
+
+		if(p.length==0)
+		{
+			document.getElementById("passerror").style.visibility='visible'
+			temp=false
+
+		}
+		return temp
+	}
+</script>
+
+<style type="text/css">
+	#usererror, #passerror
+	{
+		color: red;
+		visibility: hidden;
+	}
+</style>

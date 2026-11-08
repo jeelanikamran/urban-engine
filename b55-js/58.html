@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<a href="" id="link">click here</a>
+
+	<br>
+
+	<input type="text" name="" id="inputdata" placeholder="enter the link">
+
+	<button onclick="fun1()"> set</button>
+	
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun1()
+	{
+	   temp=document.getElementById("inputdata").value;
+
+	   document.getElementById("link").setAttribute('href', temp);
+	}
+	
+</script>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination 1</title>
+  </head>
+  <body>
+    <div id="userWrapper"></div>
+    <div id="pageWrapper"></div>
+
+    <script>
+      const users = [
+        { id: 1, name: "Kamran", age: 25 },
+        { id: 2, name: "Ahsaan", age: 24 },
+        { id: 3, name: "Abuzar", age: 35 },
+        { id: 4, name: "Junaid", age: 20 },
+        { id: 5, name: "Afeef", age: 21 },
+        { id: 6, name: "Hamza", age: 19 },
+        { id: 7, name: "Zaydu", age: 27 },
+        { id: 8, name: "Hazik", age: 23 },
+      ];
+
+      let currentPage = 1;
+
+      const perPage = 3;
+
+      const totalUsers = users.length;
+
+      // MISTAKE 1:
+      // Division alone can produce decimal values.
+      // Math.ceil() rounds UP to accommodate every user.
+
+      const totalPages = Math.ceil(totalUsers / perPage);
+
+      // MISTAKE 2:
+      // Declare variables instead of creating accidental globals.
+      let temp = "";
+
+      // Generating pagination buttons
+
+      for (let i = 1; i <= totalPages; i++) {
+        temp += `<button onclick="changePage(${i})">${i}</button> `;
+      }
+
+      document.getElementById("pageWrapper").innerHTML = temp;
+
+      // Function to display users for the selected page
+
+      function changePage(pageNumber) {
+        currentPage = pageNumber;
+
+        // Calculate starting index
+
+        const start = (currentPage - 1) * perPage;
+
+        // Calculate ending index
+
+        const end = currentPage * perPage;
+
+        // Retrieve users belonging to the current page
+
+        const currentUsers = users.slice(start, end);
+
+        // MISTAKE 3:
+        // Previously, you only used console.log().
+        // Now we generate HTML to display users on the webpage.
+
+        let userHTML = "";
+
+        currentUsers.forEach((u) => {
+          userHTML += `
+                    <p>
+                        ID: ${u.id}<br>
+                        Name: ${u.name}<br>
+                        Age: ${u.age}
+                    </p>
+                    <hr>
+                `;
+        });
+
+        document.getElementById("userWrapper").innerHTML = userHTML;
+
+        console.log(currentUsers);
+      }
+
+      // MISTAKE 4:
+      // Previously, the initial users were only logged in the console.
+      // Call the function once to display the first page immediately.
+
+      changePage(1);
+    </script>
+  </body>
+</html>
+
+<!--
+Important Points:
+
+> What does slice() do?
+
+    It extracts a portion of an array and returns it as a new array.
+    It does not modify the original array.
+    Remember this rule: start is included, end is excluded.
+
+-->

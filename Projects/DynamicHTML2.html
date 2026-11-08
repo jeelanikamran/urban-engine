@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic HTML via appendChild</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <button onclick="addPara()">Add Paragraph</button>
+  </body>
+</html>
+
+<script>
+  function addPara() {
+    let temp = document.createElement("p"); //alternative to InnerHTML
+    temp.textContent = "This is a Paragraph Tag"; //adds text to that element
+
+    document.getElementById("wrapper").appendChild(temp); //inserts the new paragraph inside that div
+  }
+</script>
+
+<style>
+  #wrapper {
+    background-color: whitesmoke;
+    margin: 80px;
+    min-height: 80px;
+  }
+</style>

@@ -1,0 +1,100 @@
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	class Student
+	{
+		id;
+		name;
+		eng;
+		urdu;
+		math;
+		sst;
+		sc;
+		tm;
+		pb;
+		fb;
+
+	   calculate()
+	   {
+	   	  this.tm=0;
+	   	  this.pb=0;
+	   	  this.fb=0;
+
+	   	  if(this.eng>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.eng;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.math>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.math;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.urdu>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.urdu;
+	   	  	this.pb++;
+	   	  }
+
+	   	  if(this.sst>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.sst;
+	   	  	this.pb++;
+	   	  }
+
+
+	   	  if(this.sc>=33)
+	   	  {
+	   	  	this.tm=this.tm+this.sc;
+	   	  	this.pb++;
+	   	  }
+
+	   	  this.fb= 5- this.pb;
+
+
+	   }	
+
+
+       display()
+       {
+       	 document.write(this.id+ " "+ this.name+ " "+ this.eng+ " "+ this.urdu+ " "+ this.math+ " "+ this.sst+ " "+ this.sc+ " "+ this.tm+ " "+ this.pb+  " "+ this.fb);
+       }
+
+	}
+
+
+	obj= new Student();
+	obj.id=1;
+	obj.name="amir";
+	obj.eng=100;
+	obj.urdu=77;
+	obj.math=10;
+	obj.sst=80;
+	obj.sc=66;
+
+	obj.calculate()
+	obj.display()
+
+
+obj2= new Student();
+	obj2.id=2;
+	obj2.name="abc";
+	obj2.eng=10;
+	obj2.urdu=77;
+	obj2.math=100;
+	obj2.sst=82;
+	obj2.sc=66;
+
+	obj2.calculate()
+	obj2.display()
+
+
+</script>

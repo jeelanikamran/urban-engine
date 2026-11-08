@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="genquate()">
+
+	<div id="wrapper">
+		<h1>Quate Of the day</h1>
+		<p id="data"></p>
+
+		<hr>
+
+		<button onclick="genquate()"> Generate new Quote</button>
+
+		<br>
+		<br>
+		
+
+		<button> pre</button>
+		<button>nxt</button>
+		
+	</div>
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+	arr=[' this is good', 'program is good', 'adil from sopar', 'tit for tat'];
+
+    
+    function genquate()
+    {
+    	x=Math.random();
+    	x=x*arr.length;
+    	x=Math.floor(x)
+        document.getElementById("data").innerText= arr[x]
+    }
+
+</script>
+
+<style type="text/css">
+	body 
+	{
+		background-color: blue;
+	}
+	*
+	{
+		margin: 0;
+		padding: 0;
+	}
+	#wrapper
+	{
+		width: 30%;
+		margin-left: auto;
+     margin-right: auto;
+     padding: 20px;
+     background-color: white;
+     margin-top: 100px;
+	}
+	h1
+	{
+		text-align: center;
+		padding: 20px;
+	}
+	p
+	{
+		text-align: center;
+		padding: 10px;
+	}
+</style>
+
+<!-- 0  .2 .4 .8  1 -->

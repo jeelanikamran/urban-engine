@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Objects 2</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+
+    <script>
+      class Employee {
+        constructor(id, name, totalSal, tA, dA, genDer) {
+          this.id = id;
+          this.name = name;
+          this.totalSal = totalSal;
+          this.tA = tA;
+          this.dA = dA;
+          this.genDer = genDer;
+        }
+
+        calculate() {
+          if (this.genDer.toLowerCase() == "male") {
+            this.totalSal += this.dA + this.tA;
+          } else {
+            this.totalSal += this.dA + this.tA + 1000;
+          }
+        }
+
+        display() {
+          // MISTAKE 1:
+          // innerText = overwrites previous employee output.
+          // Use += to append each employee's details.
+
+          document.getElementById("wrapper").innerText +=
+            "ID: " +
+            this.id +
+            "\nName: " +
+            this.name +
+            "\nGender: " +
+            this.genDer +
+            "\nTotal Salary: " +
+            this.totalSal +
+            "\n\n";
+        }
+      }
+
+      let emp = [];
+
+      // MISTAKE 2:
+      // Declare variables using let or const.
+      let n = parseInt(prompt("Enter the Number of Employees: "));
+
+      for (let i = 0; i < n; i++) {
+        // Taking User Input
+
+        // MISTAKE 3:
+        // You used the comma operator to assign multiple variables.
+        // Separate declarations make the code easier to understand.
+
+        const id = parseInt(prompt("Enter Employee ID: "));
+        const name = prompt("Enter Name: ");
+        const dA = parseInt(prompt("Enter DA: "));
+        const tA = parseInt(prompt("Enter TA: "));
+        const totalSal = parseInt(prompt("Enter Employee Total Salary: "));
+
+        // MISTAKE 4:
+        // Your prompt asked for Employee ID instead of Gender.
+        const genDer = prompt("Enter Employee Gender: ");
+
+        // MISTAKE 5:
+        // Constructor parameter order matters!
+        // Expected: id, name, totalSal, tA, dA, genDer
+        // You originally passed dA and totalSal in the wrong positions.
+
+        emp[i] = new Employee(id, name, totalSal, tA, dA, genDer);
+      }
+
+      for (let i = 0; i < n; i++) {
+        // MISTAKE 6:
+        // emp[i].calculate accesses the method.
+        // emp[i].calculate() actually executes it.
+
+        emp[i].calculate();
+      }
+
+      for (let i = 0; i < n; i++) {
+        // MISTAKE 7:
+        // Parentheses are required to execute the method.
+        emp[i].display();
+      }
+    </script>
+  </body>
+</html>
+
+<!-- calling calculate() twice would add DA and TA twice because you're modifying the original salary. That's worth remembering when designing methods that modify object properties. -->

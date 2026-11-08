@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+</head>
+<body>
+    <h2>Countries Enrolled:</h2>
+
+    <select id="dropdown">
+        <option>India</option>
+        <option>UK</option>
+    </select>
+
+    <br><br>
+
+    <input type="text" placeholder="New Option" id="Newoptions">
+    <button onclick="btn()">ADD</button>
+
+    <script>
+        function btn() {
+            let uInput = document.getElementById('Newoptions').value.trim();
+            let allOptions = document.getElementById('dropdown');
+
+            if (uInput === '') {
+                alert('Enter a country name');
+                return;
+            }
+
+            let flag = 1;
+
+            for (let i = 0; i < allOptions.options.length; i++) {
+                if (allOptions.options[i].value.toLowerCase() === uInput.toLowerCase()) {
+                    alert(uInput + ' already exists');
+                    flag = 0;
+                    break;
+                }
+            }
+
+            if (flag === 1) {
+                let newOption = document.createElement('option');
+                newOption.textContent = uInput;
+                allOptions.add(newOption);
+
+                document.getElementById('Newoptions').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

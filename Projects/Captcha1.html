@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha</title>
+</head>
+<body>
+<input type="text" id="captchaReturn" placeholder="CAPTCHA required!!">
+<span id="Coutput" ></span>
+<br><br>
+    <input type="submit">
+</body>
+</html>
+<script>
+
+   const str ="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+    cap = ''
+    for(i=0; i < 6; i++)
+{
+    x = Math.random();
+    len = str.length;
+    x = x*len;
+    x = Math.floor(x);
+     cap +=str[x];
+}
+
+    document.getElementById("Coutput").innerText = cap;
+
+</script>
+<style>
+    #Coutput
+    {
+        padding: 4px;
+        margin: 12px;
+        border: 1px solid purple ;
+    }
+</style>

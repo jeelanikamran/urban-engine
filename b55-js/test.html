@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	10th<input type="checkbox"  class="abc" onclick="fun()">
+	12th <input type="checkbox"  class="abc" onclick="fun()">
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun()
+	{
+		arr= document.getElementsByClassName("abc");
+		  console.log(arr)
+
+		  for(i=0; i<2; i++)
+		  {
+		  	console.log(arr[i].checked)
+		  }
+
+	}
+</script>

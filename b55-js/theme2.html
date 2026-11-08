@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="applytheme()">
+
+	<div id="header"> Code today</div>
+
+
+	<br/>
+	<br>
+
+	<button onclick="settheme(1)" id="btnlight">Light Theme</button>
+	<button onclick="settheme(2)" id="btndark">Dark Theme</button>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	function applytheme()
+	{
+		debugger;
+		temp=localStorage.getItem('mytheme');
+		if(temp==null)
+		{
+		  document.getElementById("header").setAttribute('class', 'lighttheme');
+
+		}
+		else
+		{
+		   document.getElementById("header").setAttribute('class', temp);
+
+		}
+
+	}
+
+
+	function settheme(x)
+	{
+		  if(x==1)
+		  {
+              document.getElementById("header").setAttribute('class', 'lighttheme')
+	     	localStorage.setItem('mytheme', 'lighttheme');
+		  }
+
+		  else
+		  {
+		  	document.getElementById("header").setAttribute('class', 'darktheme')
+		   localStorage.setItem('mytheme', 'darktheme');
+		  }
+		
+	}
+
+	
+</script>
+
+
+<style type="text/css">
+	*
+	{
+		margin: 0;
+		padding: 0;
+	}
+	.lighttheme
+	{
+		background-color: whitesmoke;
+		color: black;
+		padding: 20px;
+		font-size: 30px
+	}
+
+	.darktheme
+	{
+		background-color: black;
+		color: white;
+		padding: 20px;
+		font-size: 30px
+	}
+
+	#btnlight
+	{
+		background-color: whitesmoke;
+		color: black;
+		padding: 5px;
+	}
+
+	#btndark
+	{
+		background-color: black;
+		color: white;
+		padding: 5px;
+	}
+</style>

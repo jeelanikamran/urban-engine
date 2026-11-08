@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<select id="countrylist">
+		<option>India</option>
+		<option>uk</option>
+	</select>
+
+	<h2>Settings</h2>
+	<input type="text" id="name" placeholder="Please enter country name">
+	<button onclick="fun()">add</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function fun()
+	{
+		t= document.getElementById("name").value;
+		// alert(t)
+
+		newOption='<option>'+ t + '</option>';
+		// alert(temp)
+
+
+		alloptions=document.getElementById("countrylist");
+		// console.log(alloptions)
+		// console.log(alloptions[0].value)
+
+
+		flag=1;
+
+		for ( i = 0; i < alloptions.length; i++) 
+		{
+			 if(alloptions[i].value== t)
+			 {
+			 	 alert( t + " already exists")
+			 	 flag=0
+			 }
+		}
+
+     
+
+	     if(flag==1)
+	     {
+	     	alloptions+=newOption;
+			document.getElementById('countrylist').innerHTML+=alloptions
+	     }
+
+		
+
+	}
+</script>

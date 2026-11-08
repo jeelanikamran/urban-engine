@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+	<h1 class="text-center">Employees</h1>
+
+	<div id="wrapper" class="container">
+		
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	employees=[
+        {id:1, name:'amir', sal:100},
+
+         {id:2, name:'aqsa', sal:100},
+
+          {id:3, name:'babar', sal:100},
+           {id:4, name:'adil', sal:400},
+           {id:1, name:'amir', sal:100},
+
+         {id:2, name:'aqsa', sal:100},
+
+          {id:3, name:'babar', sal:100},
+           {id:4, name:'adil', sal:400},
+
+	];
+
+
+	temp='';
+
+	temp+='<table class="table table-striped table-hover table-bordered"> ';
+	temp+="<tr>  <th> id </th> <th> name </th>  <th> salary </th> </tr>";
+
+
+	  employees.forEach((e)=>{
+
+	  	temp+='<tr>';
+	  	  temp+='<td>'+ e.id + '</td>';
+	  	  temp+='<td>'+ e.name + '</td>';
+	  	  temp+='<td>'+ e.sal + '</td>';
+	  	temp+='</tr>';
+
+	  })
+
+	  temp+='</table> ';
+
+
+	  console.log(temp)
+
+	  document.getElementById('wrapper').innerHTML=temp
+
+
+
+
+
+</script>
+
+
+
+1
+12
+123
+
+123
+12
+1
+
+
+321
+21
+1
+
+
+
+prime no 
+aram strong no 
+
+
+prime series
+
+aram strong ser  
+
+
+1
+12
+123
+1234
+
+123
+
+str=+str(1)
+
+int()
+1
+str()
+
+'1'

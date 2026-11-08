@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Objects 3</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  // MISTAKE 1:
+  // You originally wrote 'usetrs' instead of 'users'.
+  // Variable names must match wherever they are used.
+  // Also, use const to declare an array that won't be reassigned.
+
+  const users = [
+    { id: 1, name: "Kamran", age: 25 },
+    { id: 2, name: "Ahsaan", age: 24 },
+    { id: 3, name: "Abuzar", age: 25 },
+  ];
+
+  // Method 1: Accessing objects using array indexes.
+
+  //   console.log(users[0]);
+  //   // Outputs the FIRST OBJECT, not the entire array.
+
+  //   console.log(users[0].name);
+  //   // Accesses the name property of the object at index 0.
+
+  //   console.log(users[1].name);
+  //   // Accesses the name property of the object at index 1.
+
+  //   console.log(users[2].name);
+  //   // Accesses the name property of the object at index 2.
+
+  // Method 2: Using forEach()
+
+  //   users.forEach((u) => {
+  //     // 'u' represents the current object being accessed.
+  //     // forEach() automatically iterates through every array element.
+
+  //     // console.log(u);
+  //     // Displays the entire current object.
+
+  //     console.log(u.name);
+  //     // Displays only the name property of each object.
+  //   });
+
+  //   Question:
+  // Without changing your original array, use forEach() to display the following information for every user:
+
+  //User ID: 1
+  // Name: Kamran
+  // Age: 25
+  // ----------------
+  // User ID: 2
+  // Name: Ahsaan
+  // Age: 24
+  // ----------------
+  // User ID: 3
+  // Name: Abuzar
+  // Age: 25
+  // ----------------
+
+  // Using template literals, which make combining text and variables cleaner:
+  users.forEach((u) => {
+    console.log(`
+User ID: ${u.id}
+Name: ${u.name}
+Age: ${u.age}
+----------------`);
+  });
+</script>

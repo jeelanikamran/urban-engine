@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1> USER LIST</h1>
+	<div id="wrapper">
+		
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	students =[
+      {id:1, name:'amir', class:'bca' },
+      {id:2, name:'aqsa', class:'mca' },
+      {id:3, name:'babar', class:'bca' },
+      {id:4, name:'fiza', class:'bba' },
+      {id:1, name:'amir', class:'bca' },
+      {id:2, name:'aqsa', class:'mca' },
+      {id:3, name:'babar', class:'bca' },
+      {id:4, name:'fiza', class:'bba' },
+
+{id:1, name:'amir', class:'bca' },
+      {id:2, name:'aqsa', class:'mca' },
+      {id:3, name:'babar', class:'bca' },
+      {id:4, name:'fiza', class:'bba' },
+
+
+
+	];
+
+	temp='';
+
+	students.forEach((s)=>{
+         temp+="<p class='all'>"+ s.id + s.name + s.class +"</p>"
+	})
+
+	// console.log(temp)
+
+
+   document.getElementById("wrapper").innerHTML=temp
+
+</script>
+
+
+<style type="text/css">
+	.all
+	{
+		background-color: whitesmoke;
+		padding: 20px;
+		margin: 20px;
+	}
+</style>

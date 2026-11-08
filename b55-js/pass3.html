@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h1>Password Generator app</h1>
+
+    <input type="text" id="passlen"  placeholder="Enter Length"><button onclick="fun()">Generate</button> 
+
+
+    <p id="data"></p>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+    function fun()
+    {
+
+
+        	cap='ABCDEZ'
+        	small='abcdefz';
+        	digits='0123456789'
+        	special='@_.,~!';
+
+
+        	str=''
+        	str+=cap
+        	str+=small
+
+            str+=digits
+            str+=special
+
+             len=str.length
+
+           
+            
+            // 6
+
+            pass=''
+
+            n= document.getElementById("passlen").value;
+
+            for(i=0; i<n; i++)
+            {
+                x=Math.random();
+                x=x*len;
+                x=Math.floor(x); 
+                pass+=str[x]
+            }
+
+            document.getElementById("data").innerText=pass;
+      }      
+
+</script>
