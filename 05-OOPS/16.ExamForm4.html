@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Form 4</title>
+
+    <style>
+      #questionWrapper
+      {
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: whitesmoke;
+        padding: 30px;
+      }
+
+      h1
+      {
+        text-align: center;
+      }
+
+      .btnWrapper
+      {
+        text-align: center;
+        padding: 20px;
+      }
+
+      #progressEnclosure
+      {
+        width: 100%;
+        height: 35px;
+        background-color: whitesmoke;
+        display: none;
+        margin-bottom: 20px;
+      }
+
+      #progressBar
+      {
+        background-color: green;
+        width: 0%;
+        height: 35px;
+        color: white;
+        text-align: center;
+        line-height: 35px;
+        transition: width 0.4s ease;
+      }
+
+      .selected
+      {
+        background-color: lightblue;
+      }
+
+      .correct
+      {
+        background-color: lightgreen;
+        border: 2px solid green;
+      }
+
+      .wrong
+      {
+        background-color: lightcoral;
+        border: 2px solid red;
+      }
+
+      button
+      {
+        cursor: pointer;
+        padding: 8px 12px;
+        margin: 4px;
+      }
+
+      button:disabled
+      {
+        cursor: not-allowed;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        #questionWrapper {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="questionWrapperFun()">
+    <!-- Progress Bar -->
+    <div id="progressEnclosure">
+      <div id="progressBar"></div>
+    </div>
+
+    <!-- Questions Wrapper -->
+    <div id="questionWrapper"></div>
+
+    <!-- Previous & Next Buttons -->
+    <div class="btnWrapper">
+      <button onclick="previous()">Previous</button>
+      <button onclick="next()">Next</button>
+    </div>
+
+    <!-- Result Button -->
+    <div class="btnWrapper">
+      <button onclick="result()">Show Result</button>
+    </div>
+
+    <script>
+        // Global Variables.
+      let score = 0;
+      let currentIndex = 0;
+      let reviewMode = false; // This will check
+
+      const questions = [
+        {
+          id: 1,
+          Title: "What is the full form of HTML?",
+          A: "HyperText Markup Language",
+          B: "HighText Machine Language",
+          C: "Hyper Transfer Markup Language",
+          D: "HyperText Markdown Language",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 2,
+          Title: "What does CSS stand for?",
+          A: "Computer Style Sheets",
+          B: "Cascading Style Sheets",
+          C: "Creative Style System",
+          D: "Colorful Style Sheets",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 3,
+          Title: "What is JavaScript?",
+          A: "A Programming Language",
+          B: "A CSS Framework",
+          C: "A Database",
+          D: "An Operating System",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 4,
+          Title: "Which HTML tag is used to create a hyperlink?",
+          A: "link",
+          B: "href",
+          C: "a",
+          D: "hyperlink",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 5,
+          Title: "Which CSS property changes the text color?",
+          A: "background-color",
+          B: "font-style",
+          C: "text-decoration",
+          D: "color",
+          correctAnswers: "D",
+        },
+
+        {
+          id: 6,
+          Title: "Which keyword declares a variable in JavaScript?",
+          A: "var",
+          B: "int",
+          C: "string",
+          D: "define",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 7,
+          Title: "Which HTML tag is used to insert an image?",
+          A: "picture",
+          B: "img",
+          C: "image",
+          D: "src",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 8,
+          Title: "Which method adds an element to the end of an array?",
+          A: "pop()",
+          B: "shift()",
+          C: "push()",
+          D: "unshift()",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 9,
+          Title:
+            "Which symbol is used for comments in JavaScript (single-line)?",
+          A: "//",
+          B: "/",
+          C: "#",
+          D: "**",
+          correctAnswers: "A",
+        },
+
+        {
+          id: 10,
+          Title: "Which HTML tag creates an unordered list?",
+          A: "ol",
+          B: "ul",
+          C: "li",
+          D: "list",
+          correctAnswers: "B",
+        },
+
+        {
+          id: 11,
+          Title: "What does DOM stand for?",
+          A: "Data Object Model",
+          B: "Document Oriented Method",
+          C: "Document Object Model",
+          D: "Digital Object Management",
+          correctAnswers: "C",
+        },
+
+        {
+          id: 12,
+          Title: "Which method converts JSON into a JavaScript object?",
+          A: "JSON.stringify()",
+          B: "JSON.parse()",
+          C: "JSON.convert()",
+          D: "JSON.object()",
+          correctAnswers: "B",
+        },
+      ];
+
+      // Total number of questions
+      const totalQuestions = questions.length;
+
+      // Store user answers
+      let userAnswers = Array(totalQuestions).fill("");
+
+      // Display current question
+      function questionWrapperFun() {
+        let temp = "";
+
+        const question = questions[currentIndex];  //Question's Current Index
+        const selectedAnswer = userAnswers[currentIndex]; // Which Question did the user select and the selected answer.
+
+        temp += `
+                <div>
+
+                    <h2>
+                        ${question.id}. ${question.Title}
+                    </h2>
+
+                    ${["A", "B", "C", "D"] //The map() method iterates over an array and creates a new array by transforming each element
+                      .map((option) => {
+                        let className = "";
+
+                        if (reviewMode) {
+                          if (option === question.correctAnswers) {
+                            className = "correct";
+                          } else if (option === selectedAnswer) {
+                            className = "wrong";
+                          }
+                        } else if (option === selectedAnswer) {
+                          className = "selected";
+                        }
+
+                        return `
+                            <p>
+                                <button
+                                    class="${className}"
+                                    onclick="checkANS(${currentIndex}, '${option}')"
+                                    ${reviewMode ? "disabled" : ""}
+                                >
+                                    ${option}. ${question[option]}
+                                </button>
+                            </p>
+                        `;
+                      })
+                      .join("")}
+
+                    ${
+                      reviewMode
+                        ? `
+
+                        <hr>
+
+                        <p>
+                            <strong>Your Answer:</strong>
+                            ${selectedAnswer || "Not answered"}
+                        </p>
+
+                        <p>
+                            <strong>Correct Answer:</strong>
+                            ${question.correctAnswers}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            ${
+                              selectedAnswer === question.correctAnswers
+                                ? "Correct"
+                                : "Incorrect"
+                            }
+                        </p>
+
+                    `
+                        : ""
+                    }
+
+                </div>
+            `;
+
+        document.getElementById("questionWrapper").innerHTML = temp;
+      }
+
+      // Previous question
+      function previous() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        }
+
+        questionWrapperFun();
+      }
+
+      // Next question
+      function next() {
+        if (currentIndex < totalQuestions - 1) {
+          currentIndex++;
+        }
+
+        questionWrapperFun();
+      }
+
+      // Select an answer
+      function checkANS(index, ans) {
+        if (reviewMode) {
+          return;
+        }
+
+        userAnswers[index] = ans;
+
+        console.log(userAnswers);
+
+        questionWrapperFun();
+      }
+
+      // Calculate and display results
+      function result() {
+        score = 0;
+
+        for (let i = 0; i < totalQuestions; i++) {
+          if (userAnswers[i] === questions[i].correctAnswers) {
+            score++;
+          }
+        }
+
+        let percentage = (score / totalQuestions) * 100;
+
+        // Activate review mode
+        reviewMode = true;
+
+        // Get progress bar elements
+        let progressEnclosure = document.getElementById("progressEnclosure");
+
+        let progressBar = document.getElementById("progressBar");
+
+        // Display progress bar
+        progressEnclosure.style.display = "block";
+
+        progressBar.style.width = percentage + "%";
+        progressBar.innerText = percentage + "%";
+
+        // Change progress bar color
+        if (percentage < 60) {
+          progressBar.style.background = "red";
+        } else if (percentage < 90) {
+          progressBar.style.background = "orange";
+        } else {
+          progressBar.style.background = "green";
+        }
+
+        // Display final score
+        alert("Score: " + score + " / " + totalQuestions);
+
+        alert("Percentage: " + percentage + "%");
+
+        // Refresh question to display correct/wrong answers
+        questionWrapperFun();
+      }
+    </script>
+  </body>
+</html>
+
